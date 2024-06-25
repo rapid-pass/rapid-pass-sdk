@@ -1,0 +1,21 @@
+{
+  "name": "rapid-pass-sdk",
+  "version": "1.0.0",
+  "description": "Client for Rapid Pass API",
+  "author": "rapid-pass",
+  "keywords": [],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
