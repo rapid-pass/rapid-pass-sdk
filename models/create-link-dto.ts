@@ -16,37 +16,25 @@
  * 
  *
  * @export
- * @interface PlanDto
+ * @interface CreateLinkDto
  */
-export interface PlanDto {
+export interface CreateLinkDto {
 
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof CreateLinkDto
      */
-    price: number;
-
-    /**
-     * @type {boolean}
-     * @memberof PlanDto
-     */
-    isLifetime: boolean;
-
-    /**
-     * @type {number}
-     * @memberof PlanDto
-     */
-    durationDays: number;
+    stock?: number;
 
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof CreateLinkDto
      */
-    paymentModel: string;
+    password?: string;
 
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof CreateLinkDto
      */
-    id: string;
+    visibility: string;
 }

@@ -13,32 +13,27 @@
 *
 *
 * @export
-* @interface PlanDto
+* @interface CreatePlanDto
 */
-export interface PlanDto {
+export interface CreatePlanDto {
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof CreatePlanDto
      */
     price: number;
     /**
      * @type {boolean}
-     * @memberof PlanDto
+     * @memberof CreatePlanDto
      */
     isLifetime: boolean;
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof CreatePlanDto
      */
     durationDays: number;
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof CreatePlanDto
      */
     paymentModel: string;
-    /**
-     * @type {string}
-     * @memberof PlanDto
-     */
-    id: string;
 }

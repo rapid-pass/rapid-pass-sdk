@@ -29,7 +29,7 @@ export const QueuesApiAxiosParamCreator = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         queuesControllerBullBoard: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/admin/queues`;
+            const localVarPath = `/v1/admin/queues`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;

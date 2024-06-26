@@ -12,7 +12,8 @@
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
-import { RefreshTokenResponse } from '../models';
+import { RefreshTokenDto } from '../models';
+import { RefreshTokenResponseDto } from '../models';
 import { RequestOtpDTO } from '../models';
 import { VerifyOtpDTO } from '../models';
 /**
@@ -20,6 +21,14 @@ import { VerifyOtpDTO } from '../models';
  * @export
  */
 export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get a new access token
+     * @param {RefreshTokenDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerRefreshAccess: (body: RefreshTokenDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Request a OTP
@@ -44,6 +53,14 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
 export declare const AuthApiFp: (configuration?: Configuration) => {
     /**
      *
+     * @summary Get a new access token
+     * @param {RefreshTokenDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
+    /**
+     *
      * @summary Request a OTP
      * @param {RequestOtpDTO} body
      * @param {*} [options] Override http request option.
@@ -57,13 +74,21 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RefreshTokenResponse>>>;
+    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RefreshTokenResponseDto>>>;
 };
 /**
  * AuthApi - factory interface
  * @export
  */
 export declare const AuthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Get a new access token
+     * @param {RefreshTokenDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
     /**
      *
      * @summary Request a OTP
@@ -79,7 +104,7 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponse>>;
+    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponseDto>>;
 };
 /**
  * AuthApi - object-oriented interface
@@ -90,6 +115,15 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
 export declare class AuthApi extends BaseAPI {
     /**
      *
+     * @summary Get a new access token
+     * @param {RefreshTokenDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    /**
+     *
      * @summary Request a OTP
      * @param {RequestOtpDTO} body
      * @param {*} [options] Override http request option.
@@ -105,5 +139,5 @@ export declare class AuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponse>>;
+    authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponseDto>>;
 }

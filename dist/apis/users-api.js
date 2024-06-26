@@ -110,7 +110,7 @@ var UsersApiAxiosParamCreator = function (configuration) {
                             if (userId === null || userId === undefined) {
                                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling usersControllerCreateMerchant.');
                             }
-                            localVarPath = "/api/users/{userId}/merchants"
+                            localVarPath = "/v1/users/{userId}/merchants"
                                 .replace("{".concat("userId", "}"), encodeURIComponent(String(userId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
@@ -173,7 +173,7 @@ var UsersApiAxiosParamCreator = function (configuration) {
                             if (userId === null || userId === undefined) {
                                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling usersControllerGetMerchants.');
                             }
-                            localVarPath = "/api/users/{userId}/merchants"
+                            localVarPath = "/v1/users/{userId}/merchants"
                                 .replace("{".concat("userId", "}"), encodeURIComponent(String(userId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {

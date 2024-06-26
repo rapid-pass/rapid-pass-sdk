@@ -17,7 +17,8 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { RefreshTokenResponse } from '../models';
+import { RefreshTokenDto } from '../models';
+import { RefreshTokenResponseDto } from '../models';
 import { RequestOtpDTO } from '../models';
 import { VerifyOtpDTO } from '../models';
 /**
@@ -26,6 +27,49 @@ import { VerifyOtpDTO } from '../models';
  */
 export const AuthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @summary Get a new access token
+         * @param {RefreshTokenDto} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerRefreshAccess: async (body: RefreshTokenDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling authControllerRefreshAccess.');
+            }
+            const localVarPath = `/v1/auth/refresh-access-token`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @summary Request a OTP
@@ -38,7 +82,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling authControllerSignIn.');
             }
-            const localVarPath = `/api/auth/request-otp`;
+            const localVarPath = `/v1/auth/request-otp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -81,7 +125,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling authControllerVerifyOtp.');
             }
-            const localVarPath = `/api/auth/verify-otp`;
+            const localVarPath = `/v1/auth/verify-otp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -123,6 +167,20 @@ export const AuthApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Get a new access token
+         * @param {RefreshTokenDto} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await AuthApiAxiosParamCreator(configuration).authControllerRefreshAccess(body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Request a OTP
          * @param {RequestOtpDTO} body 
          * @param {*} [options] Override http request option.
@@ -142,7 +200,7 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RefreshTokenResponse>>> {
+        async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RefreshTokenResponseDto>>> {
             const localVarAxiosArgs = await AuthApiAxiosParamCreator(configuration).authControllerVerifyOtp(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -160,6 +218,16 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
     return {
         /**
          * 
+         * @summary Get a new access token
+         * @param {RefreshTokenDto} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return AuthApiFp(configuration).authControllerRefreshAccess(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Request a OTP
          * @param {RequestOtpDTO} body 
          * @param {*} [options] Override http request option.
@@ -175,7 +243,7 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponse>> {
+        async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<RefreshTokenResponseDto>> {
             return AuthApiFp(configuration).authControllerVerifyOtp(body, options).then((request) => request(axios, basePath));
         },
     };
@@ -188,6 +256,17 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export class AuthApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get a new access token
+     * @param {RefreshTokenDto} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public async authControllerRefreshAccess(body: RefreshTokenDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return AuthApiFp(this.configuration).authControllerRefreshAccess(body, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * 
      * @summary Request a OTP
@@ -207,7 +286,7 @@ export class AuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig) : Promise<AxiosResponse<RefreshTokenResponse>> {
+    public async authControllerVerifyOtp(body: VerifyOtpDTO, options?: AxiosRequestConfig) : Promise<AxiosResponse<RefreshTokenResponseDto>> {
         return AuthApiFp(this.configuration).authControllerVerifyOtp(body, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -17,7 +17,10 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { CreateLinkDto } from '../models';
+import { CreatePlanDto } from '../models';
 import { CreateProductDto } from '../models';
+import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
@@ -29,14 +32,84 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
     return {
         /**
          * 
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body 
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerCreateLink: async (body: CreateLinkDto, merchantId: string, productId: string, planId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling merchantsControllerCreateLink.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerCreateLink.');
+            }
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerCreateLink.');
+            }
+            // verify required parameter 'planId' is not null or undefined
+            if (planId === null || planId === undefined) {
+                throw new RequiredError('planId','Required parameter planId was null or undefined when calling merchantsControllerCreateLink.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)))
+                .replace(`{${"planId"}}`, encodeURIComponent(String(planId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Create a plan for a product
-         * @param {PlanDto} body 
+         * @param {CreatePlanDto} body 
          * @param {string} merchantId 
          * @param {string} productId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreatePlan: async (body: PlanDto, merchantId: string, productId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        merchantsControllerCreatePlan: async (body: CreatePlanDto, merchantId: string, productId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling merchantsControllerCreatePlan.');
@@ -49,7 +122,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (productId === null || productId === undefined) {
                 throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerCreatePlan.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}/products/{productId}/plans`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}/plans`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
                 .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -108,7 +181,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (merchantId === null || merchantId === undefined) {
                 throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerCreateProduct.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}/products`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -151,6 +224,134 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {string} linkId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLink: async (merchantId: string, productId: string, planId: string, linkId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetLink.');
+            }
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerGetLink.');
+            }
+            // verify required parameter 'planId' is not null or undefined
+            if (planId === null || planId === undefined) {
+                throw new RequiredError('planId','Required parameter planId was null or undefined when calling merchantsControllerGetLink.');
+            }
+            // verify required parameter 'linkId' is not null or undefined
+            if (linkId === null || linkId === undefined) {
+                throw new RequiredError('linkId','Required parameter linkId was null or undefined when calling merchantsControllerGetLink.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links/{linkId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)))
+                .replace(`{${"planId"}}`, encodeURIComponent(String(planId)))
+                .replace(`{${"linkId"}}`, encodeURIComponent(String(linkId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get all links for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLinks: async (merchantId: string, productId: string, planId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetLinks.');
+            }
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerGetLinks.');
+            }
+            // verify required parameter 'planId' is not null or undefined
+            if (planId === null || planId === undefined) {
+                throw new RequiredError('planId','Required parameter planId was null or undefined when calling merchantsControllerGetLinks.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"productId"}}`, encodeURIComponent(String(productId)))
+                .replace(`{${"planId"}}`, encodeURIComponent(String(planId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get merchant info
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -161,7 +362,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (merchantId === null || merchantId === undefined) {
                 throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchants.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -215,7 +416,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (productId === null || productId === undefined) {
                 throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerGetPlans.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}/products/{productId}/plans`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}/plans`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
                 .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -270,7 +471,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (productId === null || productId === undefined) {
                 throw new RequiredError('productId','Required parameter productId was null or undefined when calling merchantsControllerGetProduct.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}/products/{productId}`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products/{productId}`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
                 .replace(`{${"productId"}}`, encodeURIComponent(String(productId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -320,7 +521,7 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             if (merchantId === null || merchantId === undefined) {
                 throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetProducts.');
             }
-            const localVarPath = `/api/dashboard/merchants/{merchantId}/products`
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/products`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -368,14 +569,31 @@ export const DashboardApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body 
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Create a plan for a product
-         * @param {PlanDto} body 
+         * @param {CreatePlanDto} body 
          * @param {string} merchantId 
          * @param {string} productId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerCreatePlan(body: PlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>> {
+        async merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>> {
             const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerCreatePlan(body, merchantId, productId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -392,6 +610,39 @@ export const DashboardApiFp = function(configuration?: Configuration) {
          */
         async merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>> {
             const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerCreateProduct(body, merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {string} linkId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get all links for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -466,14 +717,27 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
     return {
         /**
          * 
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body 
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>> {
+            return DashboardApiFp(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Create a plan for a product
-         * @param {PlanDto} body 
+         * @param {CreatePlanDto} body 
          * @param {string} merchantId 
          * @param {string} productId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerCreatePlan(body: PlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>> {
+        async merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>> {
             return DashboardApiFp(configuration).merchantsControllerCreatePlan(body, merchantId, productId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -486,6 +750,31 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
          */
         async merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>> {
             return DashboardApiFp(configuration).merchantsControllerCreateProduct(body, merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {string} linkId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>> {
+            return DashboardApiFp(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get all links for a plan
+         * @param {string} merchantId 
+         * @param {string} productId 
+         * @param {string} planId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>> {
+            return DashboardApiFp(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -541,15 +830,29 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
 export class DashboardApi extends BaseAPI {
     /**
      * 
+     * @summary Create a link for a plan
+     * @param {CreateLinkDto} body 
+     * @param {string} merchantId 
+     * @param {string} productId 
+     * @param {string} planId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<LinkDto>> {
+        return DashboardApiFp(this.configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
      * @summary Create a plan for a product
-     * @param {PlanDto} body 
+     * @param {CreatePlanDto} body 
      * @param {string} merchantId 
      * @param {string} productId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    public async merchantsControllerCreatePlan(body: PlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<PlanDto>> {
+    public async merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<PlanDto>> {
         return DashboardApiFp(this.configuration).merchantsControllerCreatePlan(body, merchantId, productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -563,6 +866,33 @@ export class DashboardApi extends BaseAPI {
      */
     public async merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductDto>> {
         return DashboardApiFp(this.configuration).merchantsControllerCreateProduct(body, merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get a specific link for a plan
+     * @param {string} merchantId 
+     * @param {string} productId 
+     * @param {string} planId 
+     * @param {string} linkId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<LinkDto>> {
+        return DashboardApiFp(this.configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get all links for a plan
+     * @param {string} merchantId 
+     * @param {string} productId 
+     * @param {string} planId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<LinkDto>>> {
+        return DashboardApiFp(this.configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

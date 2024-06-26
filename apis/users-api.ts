@@ -42,7 +42,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling usersControllerCreateMerchant.');
             }
-            const localVarPath = `/api/users/{userId}/merchants`
+            const localVarPath = `/v1/users/{userId}/merchants`
                 .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -95,7 +95,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling usersControllerGetMerchants.');
             }
-            const localVarPath = `/api/users/{userId}/merchants`
+            const localVarPath = `/v1/users/{userId}/merchants`
                 .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');

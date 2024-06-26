@@ -89,8 +89,88 @@ var DashboardApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'body' is not null or undefined
+                            if (body === null || body === undefined) {
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerCreateLink.');
+                            }
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerCreateLink.');
+                            }
+                            // verify required parameter 'productId' is not null or undefined
+                            if (productId === null || productId === undefined) {
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerCreateLink.');
+                            }
+                            // verify required parameter 'planId' is not null or undefined
+                            if (planId === null || planId === undefined) {
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerCreateLink.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
+                                .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)))
+                                .replace("{".concat("planId", "}"), encodeURIComponent(String(planId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'POST' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            localVarHeaderParameter['Content-Type'] = 'application/json';
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+                            localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a plan for a product
-         * @param {PlanDto} body
+         * @param {CreatePlanDto} body
          * @param {string} merchantId
          * @param {string} productId
          * @param {*} [options] Override http request option.
@@ -115,7 +195,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (productId === null || productId === undefined) {
                                 throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerCreatePlan.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}/products/{productId}/plans"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
                                 .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -184,7 +264,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (merchantId === null || merchantId === undefined) {
                                 throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerCreateProduct.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}/products"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
@@ -231,6 +311,156 @@ var DashboardApiAxiosParamCreator = function (configuration) {
         },
         /**
          *
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {string} linkId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetLink.');
+                            }
+                            // verify required parameter 'productId' is not null or undefined
+                            if (productId === null || productId === undefined) {
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetLink.');
+                            }
+                            // verify required parameter 'planId' is not null or undefined
+                            if (planId === null || planId === undefined) {
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerGetLink.');
+                            }
+                            // verify required parameter 'linkId' is not null or undefined
+                            if (linkId === null || linkId === undefined) {
+                                throw new base_1.RequiredError('linkId', 'Required parameter linkId was null or undefined when calling merchantsControllerGetLink.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links/{linkId}"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
+                                .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)))
+                                .replace("{".concat("planId", "}"), encodeURIComponent(String(planId)))
+                                .replace("{".concat("linkId", "}"), encodeURIComponent(String(linkId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get all links for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetLinks.');
+                            }
+                            // verify required parameter 'productId' is not null or undefined
+                            if (productId === null || productId === undefined) {
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetLinks.');
+                            }
+                            // verify required parameter 'planId' is not null or undefined
+                            if (planId === null || planId === undefined) {
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerGetLinks.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
+                                .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)))
+                                .replace("{".concat("planId", "}"), encodeURIComponent(String(planId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Get merchant info
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -247,7 +477,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (merchantId === null || merchantId === undefined) {
                                 throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchants.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
@@ -312,7 +542,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (productId === null || productId === undefined) {
                                 throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetPlans.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}/products/{productId}/plans"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
                                 .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -378,7 +608,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (productId === null || productId === undefined) {
                                 throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetProduct.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}/products/{productId}"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
                                 .replace("{".concat("productId", "}"), encodeURIComponent(String(productId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -439,7 +669,7 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             if (merchantId === null || merchantId === undefined) {
                                 throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetProducts.');
                             }
-                            localVarPath = "/api/dashboard/merchants/{merchantId}/products"
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/products"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
@@ -492,8 +722,36 @@ var DashboardApiFp = function (configuration) {
     return {
         /**
          *
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a plan for a product
-         * @param {PlanDto} body
+         * @param {CreatePlanDto} body
          * @param {string} merchantId
          * @param {string} productId
          * @param {*} [options] Override http request option.
@@ -531,6 +789,61 @@ var DashboardApiFp = function (configuration) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerCreateProduct(body, merchantId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {string} linkId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get all links for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -656,8 +969,25 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          *
+         * @summary Create a link for a plan
+         * @param {CreateLinkDto} body
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a plan for a product
-         * @param {PlanDto} body
+         * @param {CreatePlanDto} body
          * @param {string} merchantId
          * @param {string} productId
          * @param {*} [options] Override http request option.
@@ -682,6 +1012,39 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerCreateProduct(body, merchantId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get a specific link for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {string} linkId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get all links for a plan
+         * @param {string} merchantId
+         * @param {string} productId
+         * @param {string} planId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -759,8 +1122,27 @@ var DashboardApi = /** @class */ (function (_super) {
     }
     /**
      *
+     * @summary Create a link for a plan
+     * @param {CreateLinkDto} body
+     * @param {string} merchantId
+     * @param {string} productId
+     * @param {string} planId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerCreateLink = function (body, merchantId, productId, planId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
      * @summary Create a plan for a product
-     * @param {PlanDto} body
+     * @param {CreatePlanDto} body
      * @param {string} merchantId
      * @param {string} productId
      * @param {*} [options] Override http request option.
@@ -789,6 +1171,43 @@ var DashboardApi = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerCreateProduct(body, merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Get a specific link for a plan
+     * @param {string} merchantId
+     * @param {string} productId
+     * @param {string} planId
+     * @param {string} linkId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerGetLink = function (merchantId, productId, planId, linkId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Get all links for a plan
+     * @param {string} merchantId
+     * @param {string} productId
+     * @param {string} planId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerGetLinks = function (merchantId, productId, planId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

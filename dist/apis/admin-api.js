@@ -99,7 +99,7 @@ var AdminApiAxiosParamCreator = function (configuration) {
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0:
-                            localVarPath = "/api/admin/queues";
+                            localVarPath = "/v1/admin/queues";
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
                                 baseOptions = configuration.baseOptions;

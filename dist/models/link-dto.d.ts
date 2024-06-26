@@ -13,32 +13,32 @@
 *
 *
 * @export
-* @interface PlanDto
+* @interface LinkDto
 */
-export interface PlanDto {
+export interface LinkDto {
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof LinkDto
      */
-    price: number;
-    /**
-     * @type {boolean}
-     * @memberof PlanDto
-     */
-    isLifetime: boolean;
-    /**
-     * @type {number}
-     * @memberof PlanDto
-     */
-    durationDays: number;
+    stock?: number;
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof LinkDto
      */
-    paymentModel: string;
+    password?: string;
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof LinkDto
+     */
+    visibility: string;
+    /**
+     * @type {string}
+     * @memberof LinkDto
      */
     id: string;
+    /**
+     * @type {string}
+     * @memberof LinkDto
+     */
+    planId: string;
 }

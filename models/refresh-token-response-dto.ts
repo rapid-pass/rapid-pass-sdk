@@ -16,37 +16,20 @@
  * 
  *
  * @export
- * @interface PlanDto
+ * @interface RefreshTokenResponseDto
  */
-export interface PlanDto {
-
-    /**
-     * @type {number}
-     * @memberof PlanDto
-     */
-    price: number;
-
-    /**
-     * @type {boolean}
-     * @memberof PlanDto
-     */
-    isLifetime: boolean;
-
-    /**
-     * @type {number}
-     * @memberof PlanDto
-     */
-    durationDays: number;
+export interface RefreshTokenResponseDto {
 
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof RefreshTokenResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
      */
-    paymentModel: string;
+    refreshToken: string;
 
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof RefreshTokenResponseDto
      */
-    id: string;
+    userId: string;
 }
