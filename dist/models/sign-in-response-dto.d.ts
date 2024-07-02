@@ -13,27 +13,24 @@
 *
 *
 * @export
-* @interface ProductDto
+* @interface SignInResponseDto
 */
-export interface ProductDto {
+export interface SignInResponseDto {
     /**
      * @type {string}
-     * @memberof ProductDto
+     * @memberof SignInResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
      */
-    name: string;
+    refreshToken: string;
     /**
      * @type {string}
-     * @memberof ProductDto
+     * @memberof SignInResponseDto
      */
-    description?: string;
+    userId: string;
     /**
      * @type {string}
-     * @memberof ProductDto
+     * @memberof SignInResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
      */
-    id: string;
-    /**
-     * @type {string}
-     * @memberof ProductDto
-     */
-    status: string;
+    accessToken: string;
 }

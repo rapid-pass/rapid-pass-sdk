@@ -16,19 +16,14 @@
  * 
  *
  * @export
- * @interface CreateProductDto
+ * @interface AccessTokenResponseDto
  */
-export interface CreateProductDto {
+export interface AccessTokenResponseDto {
 
     /**
      * @type {string}
-     * @memberof CreateProductDto
+     * @memberof AccessTokenResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
      */
-    name: string;
-
-    /**
-     * @type {string}
-     * @memberof CreateProductDto
-     */
-    description?: string;
+    accessToken: string;
 }

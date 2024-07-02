@@ -30,11 +30,17 @@ export interface ProductDto {
      * @type {string}
      * @memberof ProductDto
      */
+    description?: string;
+
+    /**
+     * @type {string}
+     * @memberof ProductDto
+     */
     id: string;
 
     /**
      * @type {string}
      * @memberof ProductDto
      */
-    description: string;
+    status: string;
 }

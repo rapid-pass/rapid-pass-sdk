@@ -39,6 +39,18 @@ export interface CreatePlanDto {
     durationDays: number;
 
     /**
+     * @type {number}
+     * @memberof CreatePlanDto
+     */
+    freeDays: number;
+
+    /**
+     * @type {boolean}
+     * @memberof CreatePlanDto
+     */
+    oncePerUser: boolean;
+
+    /**
      * @type {string}
      * @memberof CreatePlanDto
      */

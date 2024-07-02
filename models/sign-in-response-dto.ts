@@ -16,19 +16,27 @@
  * 
  *
  * @export
- * @interface CreateProductDto
+ * @interface SignInResponseDto
  */
-export interface CreateProductDto {
+export interface SignInResponseDto {
 
     /**
      * @type {string}
-     * @memberof CreateProductDto
+     * @memberof SignInResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
      */
-    name: string;
+    refreshToken: string;
 
     /**
      * @type {string}
-     * @memberof CreateProductDto
+     * @memberof SignInResponseDto
      */
-    description?: string;
+    userId: string;
+
+    /**
+     * @type {string}
+     * @memberof SignInResponseDto
+     * @example eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+     */
+    accessToken: string;
 }

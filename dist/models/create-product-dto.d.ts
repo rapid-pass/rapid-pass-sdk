@@ -21,4 +21,9 @@ export interface CreateProductDto {
      * @memberof CreateProductDto
      */
     name: string;
+    /**
+     * @type {string}
+     * @memberof CreateProductDto
+     */
+    description?: string;
 }
