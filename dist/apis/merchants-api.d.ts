@@ -56,6 +56,14 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
     merchantsControllerCreateProduct: (body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
+     * @summary Get all links for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllLinks: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get a specific link for a plan
      * @param {string} merchantId
      * @param {string} productId
@@ -147,6 +155,14 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
     /**
      *
+     * @summary Get all links for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    /**
+     *
      * @summary Get a specific link for a plan
      * @param {string} merchantId
      * @param {string} productId
@@ -236,6 +252,14 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    /**
+     *
+     * @summary Get all links for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -332,6 +356,15 @@ export declare class MerchantsApi extends BaseAPI {
      * @memberof MerchantsApi
      */
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    /**
+     *
+     * @summary Get all links for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get a specific link for a plan
