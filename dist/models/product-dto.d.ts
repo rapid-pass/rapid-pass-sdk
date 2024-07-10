@@ -36,4 +36,9 @@ export interface ProductDto {
      * @memberof ProductDto
      */
     status: string;
+    /**
+     * @type {number}
+     * @memberof ProductDto
+     */
+    activeUsers: number;
 }

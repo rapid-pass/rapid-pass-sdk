@@ -51,4 +51,9 @@ export interface PlanDto {
      * @memberof PlanDto
      */
     id: string;
+    /**
+     * @type {number}
+     * @memberof PlanDto
+     */
+    activeUsers: number;
 }

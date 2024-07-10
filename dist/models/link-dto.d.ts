@@ -41,4 +41,14 @@ export interface LinkDto {
      * @memberof LinkDto
      */
     planId: string;
+    /**
+     * @type {string}
+     * @memberof LinkDto
+     */
+    productName: string;
+    /**
+     * @type {number}
+     * @memberof LinkDto
+     */
+    planPrice: number;
 }
