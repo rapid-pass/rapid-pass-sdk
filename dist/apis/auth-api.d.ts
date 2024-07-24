@@ -24,6 +24,14 @@ import { VerifyOtpDTO } from '../models';
 export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary Login VIA Discord OAuth
+     * @param {string} code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerLoginDiscord: (code: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get a new access token
      * @param {RefreshTokenDto} body
      * @param {*} [options] Override http request option.
@@ -52,6 +60,14 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
  * @export
  */
 export declare const AuthApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Login VIA Discord OAuth
+     * @param {string} code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>>;
     /**
      *
      * @summary Get a new access token
@@ -84,6 +100,14 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
 export declare const AuthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary Login VIA Discord OAuth
+     * @param {string} code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
+    /**
+     *
      * @summary Get a new access token
      * @param {RefreshTokenDto} body
      * @param {*} [options] Override http request option.
@@ -114,6 +138,15 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
  * @extends {BaseAPI}
  */
 export declare class AuthApi extends BaseAPI {
+    /**
+     *
+     * @summary Login VIA Discord OAuth
+     * @param {string} code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
     /**
      *
      * @summary Get a new access token
