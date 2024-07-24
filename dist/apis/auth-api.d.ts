@@ -17,6 +17,7 @@ import { RefreshTokenDto } from '../models';
 import { RequestOtpDTO } from '../models';
 import { SignInResponseDto } from '../models';
 import { VerifyOtpDTO } from '../models';
+import { VerifyUserDTO } from '../models';
 /**
  * AuthApi - axios parameter creator
  * @export
@@ -46,6 +47,13 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
      * @throws {RequiredError}
      */
     authControllerSignIn: (body: RequestOtpDTO, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Verify user status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Verify OTP
@@ -86,6 +94,13 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
     authControllerSignIn(body: RequestOtpDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
     /**
      *
+     * @summary Verify user status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<VerifyUserDTO>>>;
+    /**
+     *
      * @summary Verify OTP
      * @param {VerifyOtpDTO} body
      * @param {*} [options] Override http request option.
@@ -122,6 +137,13 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
      * @throws {RequiredError}
      */
     authControllerSignIn(body: RequestOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    /**
+     *
+     * @summary Verify user status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify(options?: AxiosRequestConfig): Promise<AxiosResponse<VerifyUserDTO>>;
     /**
      *
      * @summary Verify OTP
@@ -165,6 +187,14 @@ export declare class AuthApi extends BaseAPI {
      * @memberof AuthApi
      */
     authControllerSignIn(body: RequestOtpDTO, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    /**
+     *
+     * @summary Verify user status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerVerify(options?: AxiosRequestConfig): Promise<AxiosResponse<VerifyUserDTO>>;
     /**
      *
      * @summary Verify OTP
