@@ -26,5 +26,6 @@ __exportStar(require("./product-dto"), exports);
 __exportStar(require("./refresh-token-dto"), exports);
 __exportStar(require("./request-otp-dto"), exports);
 __exportStar(require("./sign-in-response-dto"), exports);
+__exportStar(require("./stripe-link-dto"), exports);
 __exportStar(require("./verify-otp-dto"), exports);
 __exportStar(require("./verify-user-dto"), exports);

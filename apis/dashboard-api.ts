@@ -24,6 +24,7 @@ import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
+import { StripeLinkDto } from '../models';
 /**
  * DashboardApi - axios parameter creator
  * @export
@@ -607,6 +608,55 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Create a new Stripe Connect account
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeControllerCreateStripeConnectAccount: async (merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling stripeControllerCreateStripeConnectAccount.');
+            }
+            const localVarPath = `/v1/processors/stripe/{merchantId}/stripe-connect`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -769,6 +819,20 @@ export const DashboardApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * 
+         * @summary Create a new Stripe Connect account
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<StripeLinkDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).stripeControllerCreateStripeConnectAccount(merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -890,6 +954,16 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
          */
         async merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>> {
             return DashboardApiFp(configuration).merchantsControllerGetProducts(merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Create a new Stripe Connect account
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>> {
+            return DashboardApiFp(configuration).stripeControllerCreateStripeConnectAccount(merchantId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1023,5 +1097,16 @@ export class DashboardApi extends BaseAPI {
      */
     public async merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ProductDto>>> {
         return DashboardApiFp(this.configuration).merchantsControllerGetProducts(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Create a new Stripe Connect account
+     * @param {string} merchantId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<StripeLinkDto>> {
+        return DashboardApiFp(this.configuration).stripeControllerCreateStripeConnectAccount(merchantId, options).then((request) => request(this.axios, this.basePath));
     }
 }

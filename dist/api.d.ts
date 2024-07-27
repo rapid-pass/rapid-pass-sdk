@@ -13,5 +13,7 @@ export * from './apis/admin-api';
 export * from './apis/auth-api';
 export * from './apis/dashboard-api';
 export * from './apis/merchants-api';
+export * from './apis/processors-api';
 export * from './apis/queues-api';
+export * from './apis/stripe-api';
 export * from './apis/users-api';

@@ -19,6 +19,7 @@ import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
+import { StripeLinkDto } from '../models';
 /**
  * DashboardApi - axios parameter creator
  * @export
@@ -117,6 +118,14 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Create a new Stripe Connect account
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeControllerCreateStripeConnectAccount: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * DashboardApi - functional programming interface
@@ -216,6 +225,14 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ProductDto>>>>;
+    /**
+     *
+     * @summary Create a new Stripe Connect account
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<StripeLinkDto>>>;
 };
 /**
  * DashboardApi - factory interface
@@ -315,6 +332,14 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    /**
+     *
+     * @summary Create a new Stripe Connect account
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>>;
 };
 /**
  * DashboardApi - object-oriented interface
@@ -426,4 +451,13 @@ export declare class DashboardApi extends BaseAPI {
      * @memberof DashboardApi
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    /**
+     *
+     * @summary Create a new Stripe Connect account
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>>;
 }
