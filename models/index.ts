@@ -9,6 +9,7 @@ export * from './plan-dto';
 export * from './product-dto';
 export * from './refresh-token-dto';
 export * from './request-otp-dto';
+export * from './role-dto';
 export * from './sign-in-response-dto';
 export * from './stripe-link-dto';
 export * from './verify-otp-dto';
