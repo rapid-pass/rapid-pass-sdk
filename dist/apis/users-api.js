@@ -91,11 +91,10 @@ var UsersApiAxiosParamCreator = function (configuration) {
          *
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreateMerchant: function (body, userId, options) {
+        usersControllerCreateMerchant: function (body, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
@@ -106,12 +105,7 @@ var UsersApiAxiosParamCreator = function (configuration) {
                             if (body === null || body === undefined) {
                                 throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling usersControllerCreateMerchant.');
                             }
-                            // verify required parameter 'userId' is not null or undefined
-                            if (userId === null || userId === undefined) {
-                                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling usersControllerCreateMerchant.');
-                            }
-                            localVarPath = "/v1/users/{userId}/merchants"
-                                .replace("{".concat("userId", "}"), encodeURIComponent(String(userId)));
+                            localVarPath = "/v1/users/merchants";
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
                                 baseOptions = configuration.baseOptions;
@@ -158,23 +152,17 @@ var UsersApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Get user's merchants
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetMerchants: function (userId, options) {
+        usersControllerGetMerchants: function (options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0:
-                            // verify required parameter 'userId' is not null or undefined
-                            if (userId === null || userId === undefined) {
-                                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling usersControllerGetMerchants.');
-                            }
-                            localVarPath = "/v1/users/{userId}/merchants"
-                                .replace("{".concat("userId", "}"), encodeURIComponent(String(userId)));
+                            localVarPath = "/v1/users/merchants";
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
                                 baseOptions = configuration.baseOptions;
@@ -228,16 +216,15 @@ var UsersApiFp = function (configuration) {
          *
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreateMerchant: function (body, userId, options) {
+        usersControllerCreateMerchant: function (body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.UsersApiAxiosParamCreator)(configuration).usersControllerCreateMerchant(body, userId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.UsersApiAxiosParamCreator)(configuration).usersControllerCreateMerchant(body, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -253,16 +240,15 @@ var UsersApiFp = function (configuration) {
         /**
          *
          * @summary Get user's merchants
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetMerchants: function (userId, options) {
+        usersControllerGetMerchants: function (options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.UsersApiAxiosParamCreator)(configuration).usersControllerGetMerchants(userId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.UsersApiAxiosParamCreator)(configuration).usersControllerGetMerchants(options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -288,28 +274,26 @@ var UsersApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreateMerchant: function (body, userId, options) {
+        usersControllerCreateMerchant: function (body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.UsersApiFp)(configuration).usersControllerCreateMerchant(body, userId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.UsersApiFp)(configuration).usersControllerCreateMerchant(body, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
         /**
          *
          * @summary Get user's merchants
-         * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetMerchants: function (userId, options) {
+        usersControllerGetMerchants: function (options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.UsersApiFp)(configuration).usersControllerGetMerchants(userId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.UsersApiFp)(configuration).usersControllerGetMerchants(options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -331,32 +315,30 @@ var UsersApi = /** @class */ (function (_super) {
      *
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    UsersApi.prototype.usersControllerCreateMerchant = function (body, userId, options) {
+    UsersApi.prototype.usersControllerCreateMerchant = function (body, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.UsersApiFp)(this.configuration).usersControllerCreateMerchant(body, userId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.UsersApiFp)(this.configuration).usersControllerCreateMerchant(body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
     /**
      *
      * @summary Get user's merchants
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    UsersApi.prototype.usersControllerGetMerchants = function (userId, options) {
+    UsersApi.prototype.usersControllerGetMerchants = function (options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.UsersApiFp)(this.configuration).usersControllerGetMerchants(userId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.UsersApiFp)(this.configuration).usersControllerGetMerchants(options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

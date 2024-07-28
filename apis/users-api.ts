@@ -29,21 +29,15 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * 
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body 
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerCreateMerchant: async (body: CreateUserMerchantDto, userId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersControllerCreateMerchant: async (body: CreateUserMerchantDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling usersControllerCreateMerchant.');
             }
-            // verify required parameter 'userId' is not null or undefined
-            if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling usersControllerCreateMerchant.');
-            }
-            const localVarPath = `/v1/users/{userId}/merchants`
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+            const localVarPath = `/v1/users/merchants`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -86,17 +80,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @summary Get user's merchants
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersControllerGetMerchants: async (userId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userId' is not null or undefined
-            if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling usersControllerGetMerchants.');
-            }
-            const localVarPath = `/v1/users/{userId}/merchants`
-                .replace(`{${"userId"}}`, encodeURIComponent(String(userId)));
+        usersControllerGetMerchants: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/users/merchants`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -145,12 +133,11 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * 
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body 
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerCreateMerchant(body, userId, options);
+        async usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerCreateMerchant(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -159,12 +146,11 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get user's merchants
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MerchantDto>>>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerGetMerchants(userId, options);
+        async usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MerchantDto>>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerGetMerchants(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -183,22 +169,20 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * 
          * @summary Create a new merchant
          * @param {CreateUserMerchantDto} body 
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
-            return UsersApiFp(configuration).usersControllerCreateMerchant(body, userId, options).then((request) => request(axios, basePath));
+        async usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
+            return UsersApiFp(configuration).usersControllerCreateMerchant(body, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get user's merchants
-         * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>> {
-            return UsersApiFp(configuration).usersControllerGetMerchants(userId, options).then((request) => request(axios, basePath));
+        async usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>> {
+            return UsersApiFp(configuration).usersControllerGetMerchants(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -214,23 +198,21 @@ export class UsersApi extends BaseAPI {
      * 
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body 
-     * @param {string} userId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public async usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
-        return UsersApiFp(this.configuration).usersControllerCreateMerchant(body, userId, options).then((request) => request(this.axios, this.basePath));
+    public async usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
+        return UsersApiFp(this.configuration).usersControllerCreateMerchant(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @summary Get user's merchants
-     * @param {string} userId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public async usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<MerchantDto>>> {
-        return UsersApiFp(this.configuration).usersControllerGetMerchants(userId, options).then((request) => request(this.axios, this.basePath));
+    public async usersControllerGetMerchants(options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<MerchantDto>>> {
+        return UsersApiFp(this.configuration).usersControllerGetMerchants(options).then((request) => request(this.axios, this.basePath));
     }
 }

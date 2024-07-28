@@ -23,19 +23,17 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      *
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerCreateMerchant: (body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    usersControllerCreateMerchant: (body: CreateUserMerchantDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get user's merchants
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerGetMerchants: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    usersControllerGetMerchants: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -46,19 +44,17 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      *
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
     /**
      *
      * @summary Get user's merchants
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MerchantDto>>>>;
+    usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MerchantDto>>>>;
 };
 /**
  * UsersApi - factory interface
@@ -69,19 +65,17 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      *
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get user's merchants
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
+    usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
 };
 /**
  * UsersApi - object-oriented interface
@@ -94,19 +88,17 @@ export declare class UsersApi extends BaseAPI {
      *
      * @summary Create a new merchant
      * @param {CreateUserMerchantDto} body
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    usersControllerCreateMerchant(body: CreateUserMerchantDto, userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    usersControllerCreateMerchant(body: CreateUserMerchantDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get user's merchants
-     * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    usersControllerGetMerchants(userId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
+    usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
 }

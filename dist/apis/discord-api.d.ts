@@ -12,6 +12,7 @@
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
+import { IntegrationDto } from '../models';
 import { RoleDto } from '../models';
 /**
  * DiscordApi - axios parameter creator
@@ -88,7 +89,7 @@ export declare const DiscordApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
+    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
     /**
      *
      * @summary Delete a role
@@ -131,7 +132,7 @@ export declare const DiscordApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Delete a role
@@ -179,7 +180,7 @@ export declare class DiscordApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DiscordApi
      */
-    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Delete a role

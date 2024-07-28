@@ -311,6 +311,66 @@ var DashboardApiAxiosParamCreator = function (configuration) {
         },
         /**
          *
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetAllIntegrations.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Get all links for a merchant
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -329,6 +389,72 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/links"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetIntegration.');
+                            }
+                            // verify required parameter 'integrationId' is not null or undefined
+                            if (integrationId === null || integrationId === undefined) {
+                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling merchantsControllerGetIntegration.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
+                                .replace("{".concat("integrationId", "}"), encodeURIComponent(String(integrationId)));
                             localVarUrlObj = new URL(localVarPath, 'https://example.com');
                             if (configuration) {
                                 baseOptions = configuration.baseOptions;
@@ -773,6 +899,80 @@ var DashboardApiAxiosParamCreator = function (configuration) {
         },
         /**
          *
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            // verify required parameter 'body' is not null or undefined
+                            if (body === null || body === undefined) {
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerUpdateIntegration.');
+                            }
+                            // verify required parameter 'merchantId' is not null or undefined
+                            if (merchantId === null || merchantId === undefined) {
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerUpdateIntegration.');
+                            }
+                            // verify required parameter 'integrationId' is not null or undefined
+                            if (integrationId === null || integrationId === undefined) {
+                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling merchantsControllerUpdateIntegration.');
+                            }
+                            localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}"
+                                .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
+                                .replace("{".concat("integrationId", "}"), encodeURIComponent(String(integrationId)));
+                            localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                            if (configuration) {
+                                baseOptions = configuration.baseOptions;
+                            }
+                            localVarRequestOptions = __assign(__assign({ method: 'PATCH' }, baseOptions), options);
+                            localVarHeaderParameter = {};
+                            localVarQueryParameter = {};
+                            if (!(configuration && configuration.accessToken)) return [3 /*break*/, 5];
+                            if (!(typeof configuration.accessToken === 'function')) return [3 /*break*/, 2];
+                            return [4 /*yield*/, configuration.accessToken()];
+                        case 1:
+                            _a = _b.sent();
+                            return [3 /*break*/, 4];
+                        case 2: return [4 /*yield*/, configuration.accessToken];
+                        case 3:
+                            _a = _b.sent();
+                            _b.label = 4;
+                        case 4:
+                            accessToken = _a;
+                            localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+                            _b.label = 5;
+                        case 5:
+                            localVarHeaderParameter['Content-Type'] = 'application/json';
+                            query = new URLSearchParams(localVarUrlObj.search);
+                            for (key in localVarQueryParameter) {
+                                query.set(key, localVarQueryParameter[key]);
+                            }
+                            for (key in options.params) {
+                                query.set(key, options.params[key]);
+                            }
+                            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                            headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                            localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                            needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+                            localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+                            return [2 /*return*/, {
+                                    url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                                    options: localVarRequestOptions,
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -923,6 +1123,31 @@ var DashboardApiFp = function (configuration) {
         },
         /**
          *
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerGetAllIntegrations(merchantId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Get all links for a merchant
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -934,6 +1159,32 @@ var DashboardApiFp = function (configuration) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerGetAllLinks(merchantId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1105,6 +1356,33 @@ var DashboardApiFp = function (configuration) {
         },
         /**
          *
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -1187,6 +1465,20 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
         },
         /**
          *
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
          * @summary Get all links for a merchant
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -1196,6 +1488,21 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerGetAllLinks(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1292,6 +1599,22 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
         },
         /**
          *
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body
+         * @param {string} merchantId
+         * @param {string} integrationId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId
          * @param {*} [options] Override http request option.
@@ -1374,6 +1697,22 @@ var DashboardApi = /** @class */ (function (_super) {
     };
     /**
      *
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerGetAllIntegrations = function (merchantId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
      * @summary Get all links for a merchant
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
@@ -1385,6 +1724,23 @@ var DashboardApi = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetAllLinks(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerGetIntegration = function (merchantId, integrationId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1488,6 +1844,24 @@ var DashboardApi = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerGetProducts(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    DashboardApi.prototype.merchantsControllerUpdateIntegration = function (body, merchantId, integrationId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

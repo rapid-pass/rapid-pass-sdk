@@ -20,11 +20,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 import { CreateLinkDto } from '../models';
 import { CreatePlanDto } from '../models';
 import { CreateProductDto } from '../models';
+import { IntegrationDto } from '../models';
 import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
 import { StripeLinkDto } from '../models';
+import { UpdateIntegrationDto } from '../models';
 /**
  * DashboardApi - axios parameter creator
  * @export
@@ -225,6 +227,55 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetAllIntegrations: async (merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetAllIntegrations.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/integrations`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get all links for a merchant
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -237,6 +288,61 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             }
             const localVarPath = `/v1/dashboard/merchants/{merchantId}/links`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetIntegration: async (merchantId: string, integrationId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetIntegration.');
+            }
+            // verify required parameter 'integrationId' is not null or undefined
+            if (integrationId === null || integrationId === undefined) {
+                throw new RequiredError('integrationId','Required parameter integrationId was null or undefined when calling merchantsControllerGetIntegration.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"integrationId"}}`, encodeURIComponent(String(integrationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -610,6 +716,70 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body 
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerUpdateIntegration: async (body: UpdateIntegrationDto, merchantId: string, integrationId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling merchantsControllerUpdateIntegration.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerUpdateIntegration.');
+            }
+            // verify required parameter 'integrationId' is not null or undefined
+            if (integrationId === null || integrationId === undefined) {
+                throw new RequiredError('integrationId','Required parameter integrationId was null or undefined when calling merchantsControllerUpdateIntegration.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"integrationId"}}`, encodeURIComponent(String(integrationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -716,6 +886,20 @@ export const DashboardApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<IntegrationDto>>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerGetAllIntegrations(merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Get all links for a merchant
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -723,6 +907,21 @@ export const DashboardApiFp = function(configuration?: Configuration) {
          */
         async merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>> {
             const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerGetAllLinks(merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -821,6 +1020,22 @@ export const DashboardApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body 
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -880,6 +1095,16 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
+         * @summary Get all integrations for a merchant
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>> {
+            return DashboardApiFp(configuration).merchantsControllerGetAllIntegrations(merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get all links for a merchant
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -887,6 +1112,17 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
          */
         async merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>> {
             return DashboardApiFp(configuration).merchantsControllerGetAllLinks(merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get specific integration for a merchant
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>> {
+            return DashboardApiFp(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -957,6 +1193,18 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
+         * @summary Update specific integration for a merchant
+         * @param {UpdateIntegrationDto} body 
+         * @param {string} merchantId 
+         * @param {string} integrationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>> {
+            return DashboardApiFp(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -1016,6 +1264,17 @@ export class DashboardApi extends BaseAPI {
     }
     /**
      * 
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<IntegrationDto>>> {
+        return DashboardApiFp(this.configuration).merchantsControllerGetAllIntegrations(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
      * @summary Get all links for a merchant
      * @param {string} merchantId 
      * @param {*} [options] Override http request option.
@@ -1024,6 +1283,18 @@ export class DashboardApi extends BaseAPI {
      */
     public async merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<LinkDto>>> {
         return DashboardApiFp(this.configuration).merchantsControllerGetAllLinks(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId 
+     * @param {string} integrationId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<IntegrationDto>> {
+        return DashboardApiFp(this.configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -1097,6 +1368,19 @@ export class DashboardApi extends BaseAPI {
      */
     public async merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ProductDto>>> {
         return DashboardApiFp(this.configuration).merchantsControllerGetProducts(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body 
+     * @param {string} merchantId 
+     * @param {string} integrationId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<IntegrationDto>> {
+        return DashboardApiFp(this.configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

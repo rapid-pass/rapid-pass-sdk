@@ -15,10 +15,12 @@ import { RequestArgs, BaseAPI } from '../base';
 import { CreateLinkDto } from '../models';
 import { CreatePlanDto } from '../models';
 import { CreateProductDto } from '../models';
+import { IntegrationDto } from '../models';
 import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
+import { UpdateIntegrationDto } from '../models';
 /**
  * MerchantsApi - axios parameter creator
  * @export
@@ -56,12 +58,29 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
     merchantsControllerCreateProduct: (body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllIntegrations: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get all links for a merchant
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     merchantsControllerGetAllLinks: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetIntegration: (merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -117,6 +136,16 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerUpdateIntegration: (body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * MerchantsApi - functional programming interface
@@ -155,12 +184,29 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
     /**
      *
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<IntegrationDto>>>>;
+    /**
+     *
      * @summary Get all links for a merchant
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    /**
+     *
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -216,6 +262,16 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ProductDto>>>>;
+    /**
+     *
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
 };
 /**
  * MerchantsApi - factory interface
@@ -254,12 +310,29 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    /**
+     *
      * @summary Get all links for a merchant
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    /**
+     *
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -315,6 +388,16 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    /**
+     *
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
 };
 /**
  * MerchantsApi - object-oriented interface
@@ -358,6 +441,15 @@ export declare class MerchantsApi extends BaseAPI {
     merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
+     * @summary Get all integrations for a merchant
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    /**
+     *
      * @summary Get all links for a merchant
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
@@ -365,6 +457,16 @@ export declare class MerchantsApi extends BaseAPI {
      * @memberof MerchantsApi
      */
     merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    /**
+     *
+     * @summary Get specific integration for a merchant
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -426,4 +528,15 @@ export declare class MerchantsApi extends BaseAPI {
      * @memberof MerchantsApi
      */
     merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    /**
+     *
+     * @summary Update specific integration for a merchant
+     * @param {UpdateIntegrationDto} body
+     * @param {string} merchantId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
 }

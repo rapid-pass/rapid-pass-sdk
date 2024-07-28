@@ -17,6 +17,7 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { IntegrationDto } from '../models';
 import { RoleDto } from '../models';
 /**
  * DiscordApi - axios parameter creator
@@ -304,7 +305,7 @@ export const DiscordApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+        async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>> {
             const localVarAxiosArgs = await DiscordApiAxiosParamCreator(configuration).discordControllerHandleCallback(merchantId, code, guildId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -366,7 +367,7 @@ export const DiscordApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+        async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>> {
             return DiscordApiFp(configuration).discordControllerHandleCallback(merchantId, code, guildId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -424,7 +425,7 @@ export class DiscordApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DiscordApi
      */
-    public async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+    public async discordControllerHandleCallback(merchantId: string, code: string, guildId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<IntegrationDto>> {
         return DiscordApiFp(this.configuration).discordControllerHandleCallback(merchantId, code, guildId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
