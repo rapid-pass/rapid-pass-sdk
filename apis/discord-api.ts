@@ -137,6 +137,61 @@ export const DiscordApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary View specific role
+         * @param {string} integrationId 
+         * @param {string} roleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        discordControllerFetchRole: async (integrationId: string, roleId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'integrationId' is not null or undefined
+            if (integrationId === null || integrationId === undefined) {
+                throw new RequiredError('integrationId','Required parameter integrationId was null or undefined when calling discordControllerFetchRole.');
+            }
+            // verify required parameter 'roleId' is not null or undefined
+            if (roleId === null || roleId === undefined) {
+                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling discordControllerFetchRole.');
+            }
+            const localVarPath = `/v1/discord/roles/{integrationId}/{roleId}`
+                .replace(`{${"integrationId"}}`, encodeURIComponent(String(integrationId)))
+                .replace(`{${"roleId"}}`, encodeURIComponent(String(roleId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Link Discord server to a merchant
          * @param {string} merchantId 
          * @param {string} code 
@@ -298,6 +353,21 @@ export const DiscordApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary View specific role
+         * @param {string} integrationId 
+         * @param {string} roleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RoleDto>>> {
+            const localVarAxiosArgs = await DiscordApiAxiosParamCreator(configuration).discordControllerFetchRole(integrationId, roleId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Link Discord server to a merchant
          * @param {string} merchantId 
          * @param {string} code 
@@ -360,6 +430,17 @@ export const DiscordApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary View specific role
+         * @param {string} integrationId 
+         * @param {string} roleId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<RoleDto>> {
+            return DiscordApiFp(configuration).discordControllerFetchRole(integrationId, roleId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Link Discord server to a merchant
          * @param {string} merchantId 
          * @param {string} code 
@@ -414,6 +495,18 @@ export class DiscordApi extends BaseAPI {
      */
     public async discordControllerFetchAllRoles(guildId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<RoleDto>>> {
         return DiscordApiFp(this.configuration).discordControllerFetchAllRoles(guildId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary View specific role
+     * @param {string} integrationId 
+     * @param {string} roleId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DiscordApi
+     */
+    public async discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<RoleDto>> {
+        return DiscordApiFp(this.configuration).discordControllerFetchRole(integrationId, roleId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

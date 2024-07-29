@@ -39,6 +39,15 @@ export declare const DiscordApiAxiosParamCreator: (configuration?: Configuration
     discordControllerFetchAllRoles: (guildId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
+     * @summary View specific role
+     * @param {string} integrationId
+     * @param {string} roleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    discordControllerFetchRole: (integrationId: string, roleId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Link Discord server to a merchant
      * @param {string} merchantId
      * @param {string} code
@@ -82,6 +91,15 @@ export declare const DiscordApiFp: (configuration?: Configuration) => {
     discordControllerFetchAllRoles(guildId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<RoleDto>>>>;
     /**
      *
+     * @summary View specific role
+     * @param {string} integrationId
+     * @param {string} roleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<RoleDto>>>;
+    /**
+     *
      * @summary Link Discord server to a merchant
      * @param {string} merchantId
      * @param {string} code
@@ -123,6 +141,15 @@ export declare const DiscordApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     discordControllerFetchAllRoles(guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<RoleDto>>>;
+    /**
+     *
+     * @summary View specific role
+     * @param {string} integrationId
+     * @param {string} roleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<RoleDto>>;
     /**
      *
      * @summary Link Discord server to a merchant
@@ -170,6 +197,16 @@ export declare class DiscordApi extends BaseAPI {
      * @memberof DiscordApi
      */
     discordControllerFetchAllRoles(guildId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<RoleDto>>>;
+    /**
+     *
+     * @summary View specific role
+     * @param {string} integrationId
+     * @param {string} roleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DiscordApi
+     */
+    discordControllerFetchRole(integrationId: string, roleId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<RoleDto>>;
     /**
      *
      * @summary Link Discord server to a merchant

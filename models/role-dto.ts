@@ -30,7 +30,13 @@ export interface RoleDto {
      * @type {string}
      * @memberof RoleDto
      */
-    name: string;
+    roleId: string;
+
+    /**
+     * @type {string}
+     * @memberof RoleDto
+     */
+    roleName: string;
 
     /**
      * @type {number}
