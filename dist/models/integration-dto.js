@@ -13,3 +13,25 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IntegrationDtoCancellationActionEnum = exports.IntegrationDtoTypeEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var IntegrationDtoTypeEnum;
+(function (IntegrationDtoTypeEnum) {
+    IntegrationDtoTypeEnum["DISCORD"] = "DISCORD";
+    IntegrationDtoTypeEnum["TELEGRAM"] = "TELEGRAM";
+})(IntegrationDtoTypeEnum = exports.IntegrationDtoTypeEnum || (exports.IntegrationDtoTypeEnum = {}));
+/**
+ * @export
+ * @enum {string}
+ */
+var IntegrationDtoCancellationActionEnum;
+(function (IntegrationDtoCancellationActionEnum) {
+    IntegrationDtoCancellationActionEnum["NONE"] = "NONE";
+    IntegrationDtoCancellationActionEnum["REMOVEROLE"] = "REMOVE_ROLE";
+    IntegrationDtoCancellationActionEnum["REMOVEALLROLES"] = "REMOVE_ALL_ROLES";
+    IntegrationDtoCancellationActionEnum["KICK"] = "KICK";
+    IntegrationDtoCancellationActionEnum["BAN"] = "BAN";
+})(IntegrationDtoCancellationActionEnum = exports.IntegrationDtoCancellationActionEnum || (exports.IntegrationDtoCancellationActionEnum = {}));

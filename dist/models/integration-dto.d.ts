@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { RoleDto } from './role-dto';
 /**
 *
 *
@@ -30,5 +31,54 @@ export interface IntegrationDto {
      * @type {string}
      * @memberof IntegrationDto
      */
-    type: string;
+    type: IntegrationDtoTypeEnum;
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    guildId?: string;
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    guildName?: string;
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    logChannel?: string | null;
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    pastDueRoleId?: string | null;
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    cancellationAction?: IntegrationDtoCancellationActionEnum;
+    /**
+     * @type {Array<RoleDto>}
+     * @memberof IntegrationDto
+     */
+    discordRoles?: Array<RoleDto>;
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum IntegrationDtoTypeEnum {
+    DISCORD = "DISCORD",
+    TELEGRAM = "TELEGRAM"
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum IntegrationDtoCancellationActionEnum {
+    NONE = "NONE",
+    REMOVEROLE = "REMOVE_ROLE",
+    REMOVEALLROLES = "REMOVE_ALL_ROLES",
+    KICK = "KICK",
+    BAN = "BAN"
 }
