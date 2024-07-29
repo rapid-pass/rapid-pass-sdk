@@ -13,7 +13,19 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IntegrationDtoCancellationActionEnum = exports.IntegrationDtoTypeEnum = void 0;
+exports.IntegrationDtoTypeEnum = exports.IntegrationDtoCancelActionEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var IntegrationDtoCancelActionEnum;
+(function (IntegrationDtoCancelActionEnum) {
+    IntegrationDtoCancelActionEnum["NONE"] = "NONE";
+    IntegrationDtoCancelActionEnum["REMOVEROLE"] = "REMOVE_ROLE";
+    IntegrationDtoCancelActionEnum["REMOVEALLROLES"] = "REMOVE_ALL_ROLES";
+    IntegrationDtoCancelActionEnum["KICK"] = "KICK";
+    IntegrationDtoCancelActionEnum["BAN"] = "BAN";
+})(IntegrationDtoCancelActionEnum = exports.IntegrationDtoCancelActionEnum || (exports.IntegrationDtoCancelActionEnum = {}));
 /**
  * @export
  * @enum {string}
@@ -23,15 +35,3 @@ var IntegrationDtoTypeEnum;
     IntegrationDtoTypeEnum["DISCORD"] = "DISCORD";
     IntegrationDtoTypeEnum["TELEGRAM"] = "TELEGRAM";
 })(IntegrationDtoTypeEnum = exports.IntegrationDtoTypeEnum || (exports.IntegrationDtoTypeEnum = {}));
-/**
- * @export
- * @enum {string}
- */
-var IntegrationDtoCancellationActionEnum;
-(function (IntegrationDtoCancellationActionEnum) {
-    IntegrationDtoCancellationActionEnum["NONE"] = "NONE";
-    IntegrationDtoCancellationActionEnum["REMOVEROLE"] = "REMOVE_ROLE";
-    IntegrationDtoCancellationActionEnum["REMOVEALLROLES"] = "REMOVE_ALL_ROLES";
-    IntegrationDtoCancellationActionEnum["KICK"] = "KICK";
-    IntegrationDtoCancellationActionEnum["BAN"] = "BAN";
-})(IntegrationDtoCancellationActionEnum = exports.IntegrationDtoCancellationActionEnum || (exports.IntegrationDtoCancellationActionEnum = {}));

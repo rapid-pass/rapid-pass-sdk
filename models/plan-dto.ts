@@ -27,12 +27,6 @@ export interface PlanDto {
     price: number;
 
     /**
-     * @type {boolean}
-     * @memberof PlanDto
-     */
-    isLifetime: boolean;
-
-    /**
      * @type {number}
      * @memberof PlanDto
      */

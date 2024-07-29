@@ -73,6 +73,49 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Stripe webhook endpoint
+         * @param {string} stripeSignature 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        webhooksControllerStripeWebhook: async (stripeSignature: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'stripeSignature' is not null or undefined
+            if (stripeSignature === null || stripeSignature === undefined) {
+                throw new RequiredError('stripeSignature','Required parameter stripeSignature was null or undefined when calling webhooksControllerStripeWebhook.');
+            }
+            const localVarPath = `/v1/webhooks/stripe`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (stripeSignature !== undefined && stripeSignature !== null) {
+                localVarHeaderParameter['stripe-signature'] = String(stripeSignature);
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -91,6 +134,20 @@ export const StripeApiFp = function(configuration?: Configuration) {
          */
         async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<StripeLinkDto>>> {
             const localVarAxiosArgs = await StripeApiAxiosParamCreator(configuration).stripeControllerCreateStripeConnectAccount(merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Stripe webhook endpoint
+         * @param {string} stripeSignature 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await StripeApiAxiosParamCreator(configuration).webhooksControllerStripeWebhook(stripeSignature, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -115,6 +172,16 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
         async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>> {
             return StripeApiFp(configuration).stripeControllerCreateStripeConnectAccount(merchantId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Stripe webhook endpoint
+         * @param {string} stripeSignature 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return StripeApiFp(configuration).webhooksControllerStripeWebhook(stripeSignature, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -135,5 +202,16 @@ export class StripeApi extends BaseAPI {
      */
     public async stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<StripeLinkDto>> {
         return StripeApiFp(this.configuration).stripeControllerCreateStripeConnectAccount(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Stripe webhook endpoint
+     * @param {string} stripeSignature 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    public async webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return StripeApiFp(this.configuration).webhooksControllerStripeWebhook(stripeSignature, options).then((request) => request(this.axios, this.basePath));
     }
 }

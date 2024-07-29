@@ -18,3 +18,4 @@ export * from './apis/processors-api';
 export * from './apis/queues-api';
 export * from './apis/stripe-api';
 export * from './apis/users-api';
+export * from './apis/webhooks-api';

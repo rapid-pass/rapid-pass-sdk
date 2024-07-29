@@ -36,3 +36,4 @@ __exportStar(require("./apis/processors-api"), exports);
 __exportStar(require("./apis/queues-api"), exports);
 __exportStar(require("./apis/stripe-api"), exports);
 __exportStar(require("./apis/users-api"), exports);
+__exportStar(require("./apis/webhooks-api"), exports);

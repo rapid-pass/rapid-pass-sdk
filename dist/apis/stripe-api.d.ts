@@ -26,6 +26,14 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     stripeControllerCreateStripeConnectAccount: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Stripe webhook endpoint
+     * @param {string} stripeSignature
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    webhooksControllerStripeWebhook: (stripeSignature: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StripeApi - functional programming interface
@@ -40,6 +48,14 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<StripeLinkDto>>>;
+    /**
+     *
+     * @summary Stripe webhook endpoint
+     * @param {string} stripeSignature
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
 };
 /**
  * StripeApi - factory interface
@@ -54,6 +70,14 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>>;
+    /**
+     *
+     * @summary Stripe webhook endpoint
+     * @param {string} stripeSignature
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
 };
 /**
  * StripeApi - object-oriented interface
@@ -71,4 +95,13 @@ export declare class StripeApi extends BaseAPI {
      * @memberof StripeApi
      */
     stripeControllerCreateStripeConnectAccount(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<StripeLinkDto>>;
+    /**
+     *
+     * @summary Stripe webhook endpoint
+     * @param {string} stripeSignature
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    webhooksControllerStripeWebhook(stripeSignature: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
 }

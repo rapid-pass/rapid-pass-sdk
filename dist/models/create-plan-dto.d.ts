@@ -22,11 +22,6 @@ export interface CreatePlanDto {
      */
     price: number;
     /**
-     * @type {boolean}
-     * @memberof CreatePlanDto
-     */
-    isLifetime: boolean;
-    /**
      * @type {number}
      * @memberof CreatePlanDto
      */

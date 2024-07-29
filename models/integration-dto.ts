@@ -31,6 +31,12 @@ export interface IntegrationDto {
      * @type {string}
      * @memberof IntegrationDto
      */
+    cancelAction: IntegrationDtoCancelActionEnum;
+
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
     id: string;
 
     /**
@@ -64,12 +70,6 @@ export interface IntegrationDto {
     pastDueRoleId?: string | null;
 
     /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
-    cancellationAction?: IntegrationDtoCancellationActionEnum;
-
-    /**
      * @type {Array<RoleDto>}
      * @memberof IntegrationDto
      */
@@ -80,19 +80,19 @@ export interface IntegrationDto {
  * @export
  * @enum {string}
  */
-export enum IntegrationDtoTypeEnum {
-    DISCORD = 'DISCORD',
-    TELEGRAM = 'TELEGRAM'
-}
-/**
- * @export
- * @enum {string}
- */
-export enum IntegrationDtoCancellationActionEnum {
+export enum IntegrationDtoCancelActionEnum {
     NONE = 'NONE',
     REMOVEROLE = 'REMOVE_ROLE',
     REMOVEALLROLES = 'REMOVE_ALL_ROLES',
     KICK = 'KICK',
     BAN = 'BAN'
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export enum IntegrationDtoTypeEnum {
+    DISCORD = 'DISCORD',
+    TELEGRAM = 'TELEGRAM'
 }
 
