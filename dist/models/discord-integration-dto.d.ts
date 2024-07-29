@@ -47,4 +47,20 @@ export interface DiscordIntegrationDto {
      * @memberof DiscordIntegrationDto
      */
     discordRoles?: Array<RoleDto>;
+    /**
+     * @type {string}
+     * @memberof DiscordIntegrationDto
+     */
+    cancellationAction: DiscordIntegrationDtoCancellationActionEnum;
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum DiscordIntegrationDtoCancellationActionEnum {
+    NONE = "NONE",
+    REMOVEROLE = "REMOVE_ROLE",
+    REMOVEALLROLES = "REMOVE_ALL_ROLES",
+    KICK = "KICK",
+    BAN = "BAN"
 }

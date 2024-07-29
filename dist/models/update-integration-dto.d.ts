@@ -25,13 +25,13 @@ export interface UpdateIntegrationDto {
      * @type {string}
      * @memberof UpdateIntegrationDto
      */
-    cancelAction: UpdateIntegrationDtoCancelActionEnum;
+    cancellationAction: UpdateIntegrationDtoCancellationActionEnum;
 }
 /**
  * @export
  * @enum {string}
  */
-export declare enum UpdateIntegrationDtoCancelActionEnum {
+export declare enum UpdateIntegrationDtoCancellationActionEnum {
     NONE = "NONE",
     REMOVEROLE = "REMOVE_ROLE",
     REMOVEALLROLES = "REMOVE_ALL_ROLES",

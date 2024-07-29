@@ -13,3 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DiscordIntegrationDtoCancellationActionEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var DiscordIntegrationDtoCancellationActionEnum;
+(function (DiscordIntegrationDtoCancellationActionEnum) {
+    DiscordIntegrationDtoCancellationActionEnum["NONE"] = "NONE";
+    DiscordIntegrationDtoCancellationActionEnum["REMOVEROLE"] = "REMOVE_ROLE";
+    DiscordIntegrationDtoCancellationActionEnum["REMOVEALLROLES"] = "REMOVE_ALL_ROLES";
+    DiscordIntegrationDtoCancellationActionEnum["KICK"] = "KICK";
+    DiscordIntegrationDtoCancellationActionEnum["BAN"] = "BAN";
+})(DiscordIntegrationDtoCancellationActionEnum = exports.DiscordIntegrationDtoCancellationActionEnum || (exports.DiscordIntegrationDtoCancellationActionEnum = {}));

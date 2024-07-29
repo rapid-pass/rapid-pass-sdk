@@ -25,19 +25,13 @@ export interface IntegrationDto {
      * @type {string}
      * @memberof IntegrationDto
      */
-    name: string;
-
-    /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
-    cancelAction: IntegrationDtoCancelActionEnum;
-
-    /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
     id: string;
+
+    /**
+     * @type {string}
+     * @memberof IntegrationDto
+     */
+    name: string;
 
     /**
      * @type {string}
@@ -52,17 +46,6 @@ export interface IntegrationDto {
     discordIntegration?: DiscordIntegrationDto;
 }
 
-/**
- * @export
- * @enum {string}
- */
-export enum IntegrationDtoCancelActionEnum {
-    NONE = 'NONE',
-    REMOVEROLE = 'REMOVE_ROLE',
-    REMOVEALLROLES = 'REMOVE_ALL_ROLES',
-    KICK = 'KICK',
-    BAN = 'BAN'
-}
 /**
  * @export
  * @enum {string}
