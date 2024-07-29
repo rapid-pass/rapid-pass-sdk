@@ -19,6 +19,7 @@ __exportStar(require("./create-link-dto"), exports);
 __exportStar(require("./create-plan-dto"), exports);
 __exportStar(require("./create-product-dto"), exports);
 __exportStar(require("./create-user-merchant-dto"), exports);
+__exportStar(require("./discord-integration-dto"), exports);
 __exportStar(require("./integration-dto"), exports);
 __exportStar(require("./link-dto"), exports);
 __exportStar(require("./merchant-dto"), exports);

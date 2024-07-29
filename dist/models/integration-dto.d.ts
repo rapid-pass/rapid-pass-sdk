@@ -9,7 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { RoleDto } from './role-dto';
+import { DiscordIntegrationDto } from './discord-integration-dto';
 /**
 *
 *
@@ -38,30 +38,10 @@ export interface IntegrationDto {
      */
     type: IntegrationDtoTypeEnum;
     /**
-     * @type {string}
+     * @type {DiscordIntegrationDto}
      * @memberof IntegrationDto
      */
-    guildId?: string;
-    /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
-    guildName?: string;
-    /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
-    logChannel?: string | null;
-    /**
-     * @type {string}
-     * @memberof IntegrationDto
-     */
-    pastDueRoleId?: string | null;
-    /**
-     * @type {Array<RoleDto>}
-     * @memberof IntegrationDto
-     */
-    discordRoles?: Array<RoleDto>;
+    discordIntegration?: DiscordIntegrationDto;
 }
 /**
  * @export

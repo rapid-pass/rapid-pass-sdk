@@ -3,6 +3,7 @@ export * from './create-link-dto';
 export * from './create-plan-dto';
 export * from './create-product-dto';
 export * from './create-user-merchant-dto';
+export * from './discord-integration-dto';
 export * from './integration-dto';
 export * from './link-dto';
 export * from './merchant-dto';
