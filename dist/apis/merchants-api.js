@@ -97,7 +97,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+        dashboardControllerCreateLink: function (body, merchantId, productId, planId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
@@ -106,19 +106,19 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'body' is not null or undefined
                             if (body === null || body === undefined) {
-                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerCreateLink.');
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling dashboardControllerCreateLink.');
                             }
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerCreateLink.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerCreateLink.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerCreateLink.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerCreateLink.');
                             }
                             // verify required parameter 'planId' is not null or undefined
                             if (planId === null || planId === undefined) {
-                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerCreateLink.');
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling dashboardControllerCreateLink.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -176,7 +176,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreatePlan: function (body, merchantId, productId, options) {
+        dashboardControllerCreatePlan: function (body, merchantId, productId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
@@ -185,15 +185,15 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'body' is not null or undefined
                             if (body === null || body === undefined) {
-                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerCreatePlan.');
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling dashboardControllerCreatePlan.');
                             }
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerCreatePlan.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerCreatePlan.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerCreatePlan.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerCreatePlan.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -249,7 +249,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateProduct: function (body, merchantId, options) {
+        dashboardControllerCreateProduct: function (body, merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
@@ -258,11 +258,11 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'body' is not null or undefined
                             if (body === null || body === undefined) {
-                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerCreateProduct.');
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling dashboardControllerCreateProduct.');
                             }
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerCreateProduct.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerCreateProduct.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
@@ -316,7 +316,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -325,7 +325,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetAllIntegrations.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetAllIntegrations.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
@@ -376,7 +376,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -385,7 +385,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetAllLinks.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetAllLinks.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/links"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
@@ -437,7 +437,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+        dashboardControllerGetIntegration: function (merchantId, integrationId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -446,11 +446,11 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetIntegration.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetIntegration.');
                             }
                             // verify required parameter 'integrationId' is not null or undefined
                             if (integrationId === null || integrationId === undefined) {
-                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling merchantsControllerGetIntegration.');
+                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling dashboardControllerGetIntegration.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -505,7 +505,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+        dashboardControllerGetLink: function (merchantId, productId, planId, linkId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -514,19 +514,19 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetLink.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetLink.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetLink.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerGetLink.');
                             }
                             // verify required parameter 'planId' is not null or undefined
                             if (planId === null || planId === undefined) {
-                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerGetLink.');
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling dashboardControllerGetLink.');
                             }
                             // verify required parameter 'linkId' is not null or undefined
                             if (linkId === null || linkId === undefined) {
-                                throw new base_1.RequiredError('linkId', 'Required parameter linkId was null or undefined when calling merchantsControllerGetLink.');
+                                throw new base_1.RequiredError('linkId', 'Required parameter linkId was null or undefined when calling dashboardControllerGetLink.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links/{linkId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -582,7 +582,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -591,15 +591,15 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetLinks.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetLinks.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetLinks.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerGetLinks.');
                             }
                             // verify required parameter 'planId' is not null or undefined
                             if (planId === null || planId === undefined) {
-                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling merchantsControllerGetLinks.');
+                                throw new base_1.RequiredError('planId', 'Required parameter planId was null or undefined when calling dashboardControllerGetLinks.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans/{planId}/links"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -652,7 +652,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchants: function (merchantId, options) {
+        dashboardControllerGetMerchants: function (merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -661,7 +661,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchants.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetMerchants.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
@@ -713,7 +713,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -722,11 +722,11 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetPlans.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetPlans.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetPlans.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerGetPlans.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}/plans"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -779,7 +779,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProduct: function (merchantId, productId, options) {
+        dashboardControllerGetProduct: function (merchantId, productId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -788,11 +788,11 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetProduct.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetProduct.');
                             }
                             // verify required parameter 'productId' is not null or undefined
                             if (productId === null || productId === undefined) {
-                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling merchantsControllerGetProduct.');
+                                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling dashboardControllerGetProduct.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products/{productId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -844,7 +844,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -853,7 +853,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetProducts.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerGetProducts.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/products"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
@@ -906,7 +906,7 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+        dashboardControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions, needsSerialization;
@@ -915,15 +915,15 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                         case 0:
                             // verify required parameter 'body' is not null or undefined
                             if (body === null || body === undefined) {
-                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling merchantsControllerUpdateIntegration.');
+                                throw new base_1.RequiredError('body', 'Required parameter body was null or undefined when calling dashboardControllerUpdateIntegration.');
                             }
                             // verify required parameter 'merchantId' is not null or undefined
                             if (merchantId === null || merchantId === undefined) {
-                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerUpdateIntegration.');
+                                throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling dashboardControllerUpdateIntegration.');
                             }
                             // verify required parameter 'integrationId' is not null or undefined
                             if (integrationId === null || integrationId === undefined) {
-                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling merchantsControllerUpdateIntegration.');
+                                throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling dashboardControllerUpdateIntegration.');
                             }
                             localVarPath = "/v1/dashboard/merchants/{merchantId}/integrations/{integrationId}"
                                 .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)))
@@ -971,6 +971,48 @@ var MerchantsApiAxiosParamCreator = function (configuration) {
                 });
             });
         },
+        /**
+         *
+         * @summary Get merchant info
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetMerchant: function (merchantId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_a) {
+                    // verify required parameter 'merchantId' is not null or undefined
+                    if (merchantId === null || merchantId === undefined) {
+                        throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchant.');
+                    }
+                    localVarPath = "/v1/merchants/{merchantId}"
+                        .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
+                    localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                    if (configuration) {
+                        baseOptions = configuration.baseOptions;
+                    }
+                    localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                    localVarHeaderParameter = {};
+                    localVarQueryParameter = {};
+                    query = new URLSearchParams(localVarUrlObj.search);
+                    for (key in localVarQueryParameter) {
+                        query.set(key, localVarQueryParameter[key]);
+                    }
+                    for (key in options.params) {
+                        query.set(key, options.params[key]);
+                    }
+                    localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                    headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                    localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                    return [2 /*return*/, {
+                            url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                            options: localVarRequestOptions,
+                        }];
+                });
+            });
+        },
     };
 };
 exports.MerchantsApiAxiosParamCreator = MerchantsApiAxiosParamCreator;
@@ -990,12 +1032,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+        dashboardControllerCreateLink: function (body, merchantId, productId, planId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerCreateLink(body, merchantId, productId, planId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1017,12 +1059,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreatePlan: function (body, merchantId, productId, options) {
+        dashboardControllerCreatePlan: function (body, merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerCreatePlan(body, merchantId, productId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerCreatePlan(body, merchantId, productId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1043,12 +1085,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateProduct: function (body, merchantId, options) {
+        dashboardControllerCreateProduct: function (body, merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerCreateProduct(body, merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerCreateProduct(body, merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1068,12 +1110,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetAllIntegrations(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetAllIntegrations(merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1093,12 +1135,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetAllLinks(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetAllLinks(merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1119,12 +1161,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+        dashboardControllerGetIntegration: function (merchantId, integrationId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetIntegration(merchantId, integrationId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1147,12 +1189,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+        dashboardControllerGetLink: function (merchantId, productId, planId, linkId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetLink(merchantId, productId, planId, linkId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1174,12 +1216,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1199,12 +1241,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchants: function (merchantId, options) {
+        dashboardControllerGetMerchants: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetMerchants(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetMerchants(merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1225,12 +1267,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetPlans(merchantId, productId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetPlans(merchantId, productId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1251,12 +1293,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProduct: function (merchantId, productId, options) {
+        dashboardControllerGetProduct: function (merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetProduct(merchantId, productId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetProduct(merchantId, productId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1276,12 +1318,12 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetProducts(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerGetProducts(merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1303,12 +1345,37 @@ var MerchantsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+        dashboardControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).dashboardControllerUpdateIntegration(body, merchantId, integrationId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get merchant info
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetMerchant: function (merchantId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.MerchantsApiAxiosParamCreator)(configuration).merchantsControllerGetMerchant(merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1340,10 +1407,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateLink: function (body, merchantId, productId, planId, options) {
+        dashboardControllerCreateLink: function (body, merchantId, productId, planId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1356,10 +1423,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreatePlan: function (body, merchantId, productId, options) {
+        dashboardControllerCreatePlan: function (body, merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerCreatePlan(body, merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerCreatePlan(body, merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1371,10 +1438,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerCreateProduct: function (body, merchantId, options) {
+        dashboardControllerCreateProduct: function (body, merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerCreateProduct(body, merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerCreateProduct(body, merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1385,10 +1452,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1399,10 +1466,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetAllLinks(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetAllLinks(merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1414,10 +1481,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetIntegration: function (merchantId, integrationId, options) {
+        dashboardControllerGetIntegration: function (merchantId, integrationId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1431,10 +1498,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLink: function (merchantId, productId, planId, linkId, options) {
+        dashboardControllerGetLink: function (merchantId, productId, planId, linkId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1447,10 +1514,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1461,10 +1528,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchants: function (merchantId, options) {
+        dashboardControllerGetMerchants: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetMerchants(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetMerchants(merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1476,10 +1543,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetPlans(merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetPlans(merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1491,10 +1558,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProduct: function (merchantId, productId, options) {
+        dashboardControllerGetProduct: function (merchantId, productId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetProduct(merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetProduct(merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1505,10 +1572,10 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetProducts(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerGetProducts(merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1521,10 +1588,24 @@ var MerchantsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
+        dashboardControllerUpdateIntegration: function (body, merchantId, integrationId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).dashboardControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
+         * @summary Get merchant info
+         * @param {string} merchantId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetMerchant: function (merchantId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.MerchantsApiFp)(configuration).merchantsControllerGetMerchant(merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1553,11 +1634,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerCreateLink = function (body, merchantId, productId, planId, options) {
+    MerchantsApi.prototype.dashboardControllerCreateLink = function (body, merchantId, productId, planId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerCreateLink(body, merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1571,11 +1652,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerCreatePlan = function (body, merchantId, productId, options) {
+    MerchantsApi.prototype.dashboardControllerCreatePlan = function (body, merchantId, productId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerCreatePlan(body, merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerCreatePlan(body, merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1588,11 +1669,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerCreateProduct = function (body, merchantId, options) {
+    MerchantsApi.prototype.dashboardControllerCreateProduct = function (body, merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerCreateProduct(body, merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerCreateProduct(body, merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1604,11 +1685,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetAllIntegrations = function (merchantId, options) {
+    MerchantsApi.prototype.dashboardControllerGetAllIntegrations = function (merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1620,11 +1701,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetAllLinks = function (merchantId, options) {
+    MerchantsApi.prototype.dashboardControllerGetAllLinks = function (merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetAllLinks(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetAllLinks(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1637,11 +1718,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetIntegration = function (merchantId, integrationId, options) {
+    MerchantsApi.prototype.dashboardControllerGetIntegration = function (merchantId, integrationId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetIntegration(merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1656,11 +1737,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetLink = function (merchantId, productId, planId, linkId, options) {
+    MerchantsApi.prototype.dashboardControllerGetLink = function (merchantId, productId, planId, linkId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetLink(merchantId, productId, planId, linkId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1674,11 +1755,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetLinks = function (merchantId, productId, planId, options) {
+    MerchantsApi.prototype.dashboardControllerGetLinks = function (merchantId, productId, planId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1690,11 +1771,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetMerchants = function (merchantId, options) {
+    MerchantsApi.prototype.dashboardControllerGetMerchants = function (merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetMerchants(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetMerchants(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1707,11 +1788,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetPlans = function (merchantId, productId, options) {
+    MerchantsApi.prototype.dashboardControllerGetPlans = function (merchantId, productId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetPlans(merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetPlans(merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1724,11 +1805,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetProduct = function (merchantId, productId, options) {
+    MerchantsApi.prototype.dashboardControllerGetProduct = function (merchantId, productId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetProduct(merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetProduct(merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1740,11 +1821,11 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerGetProducts = function (merchantId, options) {
+    MerchantsApi.prototype.dashboardControllerGetProducts = function (merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetProducts(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerGetProducts(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1758,11 +1839,27 @@ var MerchantsApi = /** @class */ (function (_super) {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    MerchantsApi.prototype.merchantsControllerUpdateIntegration = function (body, merchantId, integrationId, options) {
+    MerchantsApi.prototype.dashboardControllerUpdateIntegration = function (body, merchantId, integrationId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).dashboardControllerUpdateIntegration(body, merchantId, integrationId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Get merchant info
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    MerchantsApi.prototype.merchantsControllerGetMerchant = function (merchantId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.MerchantsApiFp)(this.configuration).merchantsControllerGetMerchant(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

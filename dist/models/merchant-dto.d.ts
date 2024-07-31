@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ProductDto } from './product-dto';
 /**
 *
 *
@@ -20,15 +21,25 @@ export interface MerchantDto {
      * @type {string}
      * @memberof MerchantDto
      */
-    id: string;
-    /**
-     * @type {string}
-     * @memberof MerchantDto
-     */
     name: string;
     /**
      * @type {string}
      * @memberof MerchantDto
      */
     status: string;
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
+    motto: string;
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
+    description: string;
+    /**
+     * @type {Array<ProductDto>}
+     * @memberof MerchantDto
+     */
+    products: Array<ProductDto>;
 }

@@ -37,7 +37,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateLink: (body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerCreateLink: (body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Create a plan for a product
@@ -47,7 +47,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreatePlan: (body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerCreatePlan: (body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Create new product for a merchant
@@ -56,7 +56,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateProduct: (body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerCreateProduct: (body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -64,7 +64,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllIntegrations: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetAllIntegrations: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all links for a merchant
@@ -72,7 +72,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllLinks: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetAllLinks: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -81,7 +81,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetIntegration: (merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetIntegration: (merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -92,7 +92,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLink: (merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetLink: (merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all links for a plan
@@ -102,7 +102,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLinks: (merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetLinks: (merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get merchant info
@@ -110,7 +110,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchants: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetMerchants: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all plans for a product
@@ -119,7 +119,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetPlans: (merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetPlans: (merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get a specific product
@@ -128,7 +128,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProduct: (merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetProduct: (merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get products owned by a merchant
@@ -136,7 +136,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProducts: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetProducts: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -146,7 +146,7 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerUpdateIntegration: (body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerUpdateIntegration: (body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Create a new Stripe Connect account
@@ -171,7 +171,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>>;
+    dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>>;
     /**
      *
      * @summary Create a plan for a product
@@ -181,7 +181,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>>;
     /**
      *
      * @summary Create new product for a merchant
@@ -190,7 +190,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
+    dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -198,7 +198,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<IntegrationDto>>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<IntegrationDto>>>>;
     /**
      *
      * @summary Get all links for a merchant
@@ -206,7 +206,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -215,7 +215,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
+    dashboardControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -226,7 +226,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>>;
+    dashboardControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>>;
     /**
      *
      * @summary Get all links for a plan
@@ -236,7 +236,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
     /**
      *
      * @summary Get merchant info
@@ -244,7 +244,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
     /**
      *
      * @summary Get all plans for a product
@@ -253,7 +253,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<PlanDto>>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<PlanDto>>>>;
     /**
      *
      * @summary Get a specific product
@@ -262,7 +262,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
+    dashboardControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
     /**
      *
      * @summary Get products owned by a merchant
@@ -270,7 +270,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ProductDto>>>>;
+    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ProductDto>>>>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -280,7 +280,7 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
+    dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
     /**
      *
      * @summary Create a new Stripe Connect account
@@ -305,7 +305,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
+    dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
      * @summary Create a plan for a product
@@ -315,7 +315,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
     /**
      *
      * @summary Create new product for a merchant
@@ -324,7 +324,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -332,7 +332,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
     /**
      *
      * @summary Get all links for a merchant
@@ -340,7 +340,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -349,7 +349,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
+    dashboardControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -360,7 +360,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
+    dashboardControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
      * @summary Get all links for a plan
@@ -370,7 +370,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get merchant info
@@ -378,7 +378,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get all plans for a product
@@ -387,7 +387,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
     /**
      *
      * @summary Get a specific product
@@ -396,7 +396,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    dashboardControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
      * @summary Get products owned by a merchant
@@ -404,7 +404,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -414,7 +414,7 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
+    dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Create a new Stripe Connect account
@@ -442,7 +442,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
+    dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
      * @summary Create a plan for a product
@@ -453,7 +453,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
     /**
      *
      * @summary Create new product for a merchant
@@ -463,7 +463,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -472,7 +472,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
     /**
      *
      * @summary Get all links for a merchant
@@ -481,7 +481,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -491,7 +491,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
+    dashboardControllerGetIntegration(merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Get a specific link for a plan
@@ -503,7 +503,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
+    dashboardControllerGetLink(merchantId: string, productId: string, planId: string, linkId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
      * @summary Get all links for a plan
@@ -514,7 +514,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
     /**
      *
      * @summary Get merchant info
@@ -523,7 +523,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get all plans for a product
@@ -533,7 +533,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
     /**
      *
      * @summary Get a specific product
@@ -543,7 +543,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    dashboardControllerGetProduct(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
     /**
      *
      * @summary Get products owned by a merchant
@@ -552,7 +552,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -563,7 +563,7 @@ export declare class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    merchantsControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
+    dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
      * @summary Create a new Stripe Connect account
