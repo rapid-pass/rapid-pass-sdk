@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { IntegrationDto } from './integration-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedIntegrationResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedIntegrationResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<IntegrationDto>}
+     * @memberof PaginatedIntegrationResponseDto
      */
-    name: string;
+    data: Array<IntegrationDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedIntegrationResponseDto
      */
-    slug: string;
+    total: number;
 }

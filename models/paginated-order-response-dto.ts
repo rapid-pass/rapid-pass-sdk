@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { OrderDto } from './order-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedOrderResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedOrderResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<OrderDto>}
+     * @memberof PaginatedOrderResponseDto
      */
-    name: string;
+    data: Array<OrderDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedOrderResponseDto
      */
-    slug: string;
+    total: number;
 }

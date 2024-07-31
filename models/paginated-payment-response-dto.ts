@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { PaymentDto } from './payment-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedPaymentResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedPaymentResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<PaymentDto>}
+     * @memberof PaginatedPaymentResponseDto
      */
-    name: string;
+    data: Array<PaymentDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedPaymentResponseDto
      */
-    slug: string;
+    total: number;
 }

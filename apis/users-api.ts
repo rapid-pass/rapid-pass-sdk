@@ -19,6 +19,9 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { CreateUserMerchantDto } from '../models';
 import { MerchantDto } from '../models';
+import { PaginatedOrderResponseDto } from '../models';
+import { PaginatedPaymentResponseDto } from '../models';
+import { PaginatedSubscriptionResponseDto } from '../models';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -120,6 +123,170 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Get user orders
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        usersControllerGetUserOrders: async (page?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/users/orders`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get user payments
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        usersControllerGetUserPayments: async (page?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/users/payments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get user subscriptions
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {boolean} [isActive] Active status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        usersControllerGetUserSubscriptions: async (page?: number, limit?: number, isActive?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/users/subscriptions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (isActive !== undefined) {
+                localVarQueryParameter['isActive'] = isActive;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -156,6 +323,52 @@ export const UsersApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * 
+         * @summary Get user orders
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedOrderResponseDto>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerGetUserOrders(page, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get user payments
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedPaymentResponseDto>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerGetUserPayments(page, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get user subscriptions
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {boolean} [isActive] Active status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).usersControllerGetUserSubscriptions(page, limit, isActive, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -183,6 +396,40 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         async usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>> {
             return UsersApiFp(configuration).usersControllerGetMerchants(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get user orders
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedOrderResponseDto>> {
+            return UsersApiFp(configuration).usersControllerGetUserOrders(page, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get user payments
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedPaymentResponseDto>> {
+            return UsersApiFp(configuration).usersControllerGetUserPayments(page, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get user subscriptions
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
+         * @param {boolean} [isActive] Active status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedSubscriptionResponseDto>> {
+            return UsersApiFp(configuration).usersControllerGetUserSubscriptions(page, limit, isActive, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -214,5 +461,42 @@ export class UsersApi extends BaseAPI {
      */
     public async usersControllerGetMerchants(options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<MerchantDto>>> {
         return UsersApiFp(this.configuration).usersControllerGetMerchants(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get user orders
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public async usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<PaginatedOrderResponseDto>> {
+        return UsersApiFp(this.configuration).usersControllerGetUserOrders(page, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get user payments
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public async usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<PaginatedPaymentResponseDto>> {
+        return UsersApiFp(this.configuration).usersControllerGetUserPayments(page, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get user subscriptions
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {boolean} [isActive] Active status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public async usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig) : Promise<AxiosResponse<PaginatedSubscriptionResponseDto>> {
+        return UsersApiFp(this.configuration).usersControllerGetUserSubscriptions(page, limit, isActive, options).then((request) => request(this.axios, this.basePath));
     }
 }

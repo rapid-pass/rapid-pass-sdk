@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { SubscriptionDto } from './subscription-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedSubscriptionResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedSubscriptionResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<SubscriptionDto>}
+     * @memberof PaginatedSubscriptionResponseDto
      */
-    name: string;
+    data: Array<SubscriptionDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedSubscriptionResponseDto
      */
-    slug: string;
+    total: number;
 }

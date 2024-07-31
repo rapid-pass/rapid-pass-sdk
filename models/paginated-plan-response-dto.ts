@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { PlanDto } from './plan-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedPlanResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedPlanResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<PlanDto>}
+     * @memberof PaginatedPlanResponseDto
      */
-    name: string;
+    data: Array<PlanDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedPlanResponseDto
      */
-    slug: string;
+    total: number;
 }

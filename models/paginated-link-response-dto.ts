@@ -12,23 +12,24 @@
  * Do not edit the class manually.
  */
 
+import { LinkDto } from './link-dto';
  /**
  * 
  *
  * @export
- * @interface CreateUserMerchantDto
+ * @interface PaginatedLinkResponseDto
  */
-export interface CreateUserMerchantDto {
+export interface PaginatedLinkResponseDto {
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {Array<LinkDto>}
+     * @memberof PaginatedLinkResponseDto
      */
-    name: string;
+    data: Array<LinkDto>;
 
     /**
-     * @type {string}
-     * @memberof CreateUserMerchantDto
+     * @type {number}
+     * @memberof PaginatedLinkResponseDto
      */
-    slug: string;
+    total: number;
 }

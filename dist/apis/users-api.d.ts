@@ -14,6 +14,9 @@ import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
 import { CreateUserMerchantDto } from '../models';
 import { MerchantDto } from '../models';
+import { PaginatedOrderResponseDto } from '../models';
+import { PaginatedPaymentResponseDto } from '../models';
+import { PaginatedSubscriptionResponseDto } from '../models';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -34,6 +37,34 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     usersControllerGetMerchants: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get user orders
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserOrders: (page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get user payments
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserPayments: (page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get user subscriptions
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {boolean} [isActive] Active status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserSubscriptions: (page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -55,6 +86,34 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MerchantDto>>>>;
+    /**
+     *
+     * @summary Get user orders
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedOrderResponseDto>>>;
+    /**
+     *
+     * @summary Get user payments
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedPaymentResponseDto>>>;
+    /**
+     *
+     * @summary Get user subscriptions
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {boolean} [isActive] Active status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>>;
 };
 /**
  * UsersApi - factory interface
@@ -76,6 +135,34 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
+    /**
+     *
+     * @summary Get user orders
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedOrderResponseDto>>;
+    /**
+     *
+     * @summary Get user payments
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedPaymentResponseDto>>;
+    /**
+     *
+     * @summary Get user subscriptions
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {boolean} [isActive] Active status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>;
 };
 /**
  * UsersApi - object-oriented interface
@@ -101,4 +188,35 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     usersControllerGetMerchants(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MerchantDto>>>;
+    /**
+     *
+     * @summary Get user orders
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    usersControllerGetUserOrders(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedOrderResponseDto>>;
+    /**
+     *
+     * @summary Get user payments
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    usersControllerGetUserPayments(page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedPaymentResponseDto>>;
+    /**
+     *
+     * @summary Get user subscriptions
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
+     * @param {boolean} [isActive] Active status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>;
 }

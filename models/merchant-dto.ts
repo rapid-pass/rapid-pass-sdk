@@ -31,6 +31,12 @@ export interface MerchantDto {
      * @type {string}
      * @memberof MerchantDto
      */
+    slug: string;
+
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
     status: string;
 
     /**

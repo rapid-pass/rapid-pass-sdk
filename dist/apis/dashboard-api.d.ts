@@ -18,6 +18,10 @@ import { CreateProductDto } from '../models';
 import { IntegrationDto } from '../models';
 import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
+import { PaginatedIntegrationResponseDto } from '../models';
+import { PaginatedLinkResponseDto } from '../models';
+import { PaginatedPlanResponseDto } from '../models';
+import { PaginatedProductResponseDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
 import { StripeLinkDto } from '../models';
@@ -61,18 +65,22 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      *
      * @summary Get all integrations for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllIntegrations: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetAllIntegrations: (merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all links for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllLinks: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetAllLinks: (merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -99,10 +107,12 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @param {string} merchantId
      * @param {string} productId
      * @param {string} planId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetLinks: (merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetLinks: (merchantId: string, productId: string, planId: string, page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get merchant info
@@ -116,10 +126,12 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      * @summary Get all plans for a product
      * @param {string} merchantId
      * @param {string} productId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetPlans: (merchantId: string, productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetPlans: (merchantId: string, productId: string, page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get a specific product
@@ -133,10 +145,12 @@ export declare const DashboardApiAxiosParamCreator: (configuration?: Configurati
      *
      * @summary Get products owned by a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetProducts: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetProducts: (merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -195,18 +209,22 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      *
      * @summary Get all integrations for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<IntegrationDto>>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedIntegrationResponseDto>>>;
     /**
      *
      * @summary Get all links for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    dashboardControllerGetAllLinks(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedLinkResponseDto>>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -233,10 +251,12 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @param {string} merchantId
      * @param {string} productId
      * @param {string} planId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<LinkDto>>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedLinkResponseDto>>>;
     /**
      *
      * @summary Get merchant info
@@ -250,10 +270,12 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      * @summary Get all plans for a product
      * @param {string} merchantId
      * @param {string} productId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<PlanDto>>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedPlanResponseDto>>>;
     /**
      *
      * @summary Get a specific product
@@ -267,10 +289,12 @@ export declare const DashboardApiFp: (configuration?: Configuration) => {
      *
      * @summary Get products owned by a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ProductDto>>>>;
+    dashboardControllerGetProducts(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedProductResponseDto>>>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -329,18 +353,22 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      *
      * @summary Get all integrations for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedIntegrationResponseDto>>;
     /**
      *
      * @summary Get all links for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetAllLinks(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedLinkResponseDto>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -367,10 +395,12 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @param {string} merchantId
      * @param {string} productId
      * @param {string} planId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedLinkResponseDto>>;
     /**
      *
      * @summary Get merchant info
@@ -384,10 +414,12 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      * @summary Get all plans for a product
      * @param {string} merchantId
      * @param {string} productId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedPlanResponseDto>>;
     /**
      *
      * @summary Get a specific product
@@ -401,10 +433,12 @@ export declare const DashboardApiFactory: (configuration?: Configuration, basePa
      *
      * @summary Get products owned by a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    dashboardControllerGetProducts(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedProductResponseDto>>;
     /**
      *
      * @summary Update specific integration for a merchant
@@ -468,20 +502,24 @@ export declare class DashboardApi extends BaseAPI {
      *
      * @summary Get all integrations for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    dashboardControllerGetAllIntegrations(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<IntegrationDto>>>;
+    dashboardControllerGetAllIntegrations(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedIntegrationResponseDto>>;
     /**
      *
      * @summary Get all links for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    dashboardControllerGetAllLinks(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetAllLinks(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedLinkResponseDto>>;
     /**
      *
      * @summary Get specific integration for a merchant
@@ -510,11 +548,13 @@ export declare class DashboardApi extends BaseAPI {
      * @param {string} merchantId
      * @param {string} productId
      * @param {string} planId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<LinkDto>>>;
+    dashboardControllerGetLinks(merchantId: string, productId: string, planId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedLinkResponseDto>>;
     /**
      *
      * @summary Get merchant info
@@ -529,11 +569,13 @@ export declare class DashboardApi extends BaseAPI {
      * @summary Get all plans for a product
      * @param {string} merchantId
      * @param {string} productId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    dashboardControllerGetPlans(merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<PlanDto>>>;
+    dashboardControllerGetPlans(merchantId: string, productId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedPlanResponseDto>>;
     /**
      *
      * @summary Get a specific product
@@ -548,11 +590,13 @@ export declare class DashboardApi extends BaseAPI {
      *
      * @summary Get products owned by a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    dashboardControllerGetProducts(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ProductDto>>>;
+    dashboardControllerGetProducts(merchantId: string, page?: number, limit?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedProductResponseDto>>;
     /**
      *
      * @summary Update specific integration for a merchant

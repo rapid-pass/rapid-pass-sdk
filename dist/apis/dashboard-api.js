@@ -313,10 +313,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
          *
          * @summary Get all integrations for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, page, limit, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -351,6 +353,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
                             _b.label = 5;
                         case 5:
+                            if (page !== undefined) {
+                                localVarQueryParameter['page'] = page;
+                            }
+                            if (limit !== undefined) {
+                                localVarQueryParameter['limit'] = limit;
+                            }
                             query = new URLSearchParams(localVarUrlObj.search);
                             for (key in localVarQueryParameter) {
                                 query.set(key, localVarQueryParameter[key]);
@@ -373,10 +381,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
          *
          * @summary Get all links for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, page, limit, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -411,6 +421,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
                             _b.label = 5;
                         case 5:
+                            if (page !== undefined) {
+                                localVarQueryParameter['page'] = page;
+                            }
+                            if (limit !== undefined) {
+                                localVarQueryParameter['limit'] = limit;
+                            }
                             query = new URLSearchParams(localVarUrlObj.search);
                             for (key in localVarQueryParameter) {
                                 query.set(key, localVarQueryParameter[key]);
@@ -579,10 +595,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
          * @param {string} merchantId
          * @param {string} productId
          * @param {string} planId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, page, limit, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -627,6 +645,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
                             _b.label = 5;
                         case 5:
+                            if (page !== undefined) {
+                                localVarQueryParameter['page'] = page;
+                            }
+                            if (limit !== undefined) {
+                                localVarQueryParameter['limit'] = limit;
+                            }
                             query = new URLSearchParams(localVarUrlObj.search);
                             for (key in localVarQueryParameter) {
                                 query.set(key, localVarQueryParameter[key]);
@@ -710,10 +734,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
          * @summary Get all plans for a product
          * @param {string} merchantId
          * @param {string} productId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, page, limit, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -753,6 +779,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
                             _b.label = 5;
                         case 5:
+                            if (page !== undefined) {
+                                localVarQueryParameter['page'] = page;
+                            }
+                            if (limit !== undefined) {
+                                localVarQueryParameter['limit'] = limit;
+                            }
                             query = new URLSearchParams(localVarUrlObj.search);
                             for (key in localVarQueryParameter) {
                                 query.set(key, localVarQueryParameter[key]);
@@ -841,10 +873,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
          *
          * @summary Get products owned by a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, page, limit, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, accessToken, _a, query, key, key, headersFromBaseOptions;
@@ -879,6 +913,12 @@ var DashboardApiAxiosParamCreator = function (configuration) {
                             localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
                             _b.label = 5;
                         case 5:
+                            if (page !== undefined) {
+                                localVarQueryParameter['page'] = page;
+                            }
+                            if (limit !== undefined) {
+                                localVarQueryParameter['limit'] = limit;
+                            }
                             query = new URLSearchParams(localVarUrlObj.search);
                             for (key in localVarQueryParameter) {
                                 query.set(key, localVarQueryParameter[key]);
@@ -1125,15 +1165,17 @@ var DashboardApiFp = function (configuration) {
          *
          * @summary Get all integrations for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetAllIntegrations(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetAllIntegrations(merchantId, page, limit, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1150,15 +1192,17 @@ var DashboardApiFp = function (configuration) {
          *
          * @summary Get all links for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetAllLinks(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetAllLinks(merchantId, page, limit, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1231,15 +1275,17 @@ var DashboardApiFp = function (configuration) {
          * @param {string} merchantId
          * @param {string} productId
          * @param {string} planId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, page, limit, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1282,15 +1328,17 @@ var DashboardApiFp = function (configuration) {
          * @summary Get all plans for a product
          * @param {string} merchantId
          * @param {string} productId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetPlans(merchantId, productId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetPlans(merchantId, productId, page, limit, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1333,15 +1381,17 @@ var DashboardApiFp = function (configuration) {
          *
          * @summary Get products owned by a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetProducts(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.DashboardApiAxiosParamCreator)(configuration).dashboardControllerGetProducts(merchantId, page, limit, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -1467,13 +1517,15 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Get all integrations for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllIntegrations: function (merchantId, options) {
+        dashboardControllerGetAllIntegrations: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetAllIntegrations(merchantId, page, limit, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1481,13 +1533,15 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Get all links for a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetAllLinks: function (merchantId, options) {
+        dashboardControllerGetAllLinks: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetAllLinks(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetAllLinks(merchantId, page, limit, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1529,13 +1583,15 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
          * @param {string} merchantId
          * @param {string} productId
          * @param {string} planId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetLinks: function (merchantId, productId, planId, options) {
+        dashboardControllerGetLinks: function (merchantId, productId, planId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetLinks(merchantId, productId, planId, page, limit, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1558,13 +1614,15 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
          * @summary Get all plans for a product
          * @param {string} merchantId
          * @param {string} productId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetPlans: function (merchantId, productId, options) {
+        dashboardControllerGetPlans: function (merchantId, productId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetPlans(merchantId, productId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetPlans(merchantId, productId, page, limit, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1587,13 +1645,15 @@ var DashboardApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Get products owned by a merchant
          * @param {string} merchantId
+         * @param {number} [page] Page number for pagination
+         * @param {number} [limit] Number of items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetProducts: function (merchantId, options) {
+        dashboardControllerGetProducts: function (merchantId, page, limit, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetProducts(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.DashboardApiFp)(configuration).dashboardControllerGetProducts(merchantId, page, limit, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -1699,15 +1759,17 @@ var DashboardApi = /** @class */ (function (_super) {
      *
      * @summary Get all integrations for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    DashboardApi.prototype.dashboardControllerGetAllIntegrations = function (merchantId, options) {
+    DashboardApi.prototype.dashboardControllerGetAllIntegrations = function (merchantId, page, limit, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetAllIntegrations(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetAllIntegrations(merchantId, page, limit, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1715,15 +1777,17 @@ var DashboardApi = /** @class */ (function (_super) {
      *
      * @summary Get all links for a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    DashboardApi.prototype.dashboardControllerGetAllLinks = function (merchantId, options) {
+    DashboardApi.prototype.dashboardControllerGetAllLinks = function (merchantId, page, limit, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetAllLinks(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetAllLinks(merchantId, page, limit, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1769,15 +1833,17 @@ var DashboardApi = /** @class */ (function (_super) {
      * @param {string} merchantId
      * @param {string} productId
      * @param {string} planId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    DashboardApi.prototype.dashboardControllerGetLinks = function (merchantId, productId, planId, options) {
+    DashboardApi.prototype.dashboardControllerGetLinks = function (merchantId, productId, planId, page, limit, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetLinks(merchantId, productId, planId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetLinks(merchantId, productId, planId, page, limit, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1802,15 +1868,17 @@ var DashboardApi = /** @class */ (function (_super) {
      * @summary Get all plans for a product
      * @param {string} merchantId
      * @param {string} productId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    DashboardApi.prototype.dashboardControllerGetPlans = function (merchantId, productId, options) {
+    DashboardApi.prototype.dashboardControllerGetPlans = function (merchantId, productId, page, limit, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetPlans(merchantId, productId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetPlans(merchantId, productId, page, limit, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1835,15 +1903,17 @@ var DashboardApi = /** @class */ (function (_super) {
      *
      * @summary Get products owned by a merchant
      * @param {string} merchantId
+     * @param {number} [page] Page number for pagination
+     * @param {number} [limit] Number of items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    DashboardApi.prototype.dashboardControllerGetProducts = function (merchantId, options) {
+    DashboardApi.prototype.dashboardControllerGetProducts = function (merchantId, page, limit, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetProducts(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.DashboardApiFp)(this.configuration).dashboardControllerGetProducts(merchantId, page, limit, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
