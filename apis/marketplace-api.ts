@@ -64,6 +64,46 @@ export const MarketplaceApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetSlug: async (slug: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'slug' is not null or undefined
+            if (slug === null || slug === undefined) {
+                throw new RequiredError('slug','Required parameter slug was null or undefined when calling merchantsControllerGetSlug.');
+            }
+            const localVarPath = `/v1/merchants/slug/{slug}`
+                .replace(`{${"slug"}}`, encodeURIComponent(String(slug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -82,6 +122,20 @@ export const MarketplaceApiFp = function(configuration?: Configuration) {
          */
         async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
             const localVarAxiosArgs = await MarketplaceApiAxiosParamCreator(configuration).merchantsControllerGetMerchant(merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await MarketplaceApiAxiosParamCreator(configuration).merchantsControllerGetSlug(slug, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -106,6 +160,16 @@ export const MarketplaceApiFactory = function (configuration?: Configuration, ba
         async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
             return MarketplaceApiFp(configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return MarketplaceApiFp(configuration).merchantsControllerGetSlug(slug, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -126,5 +190,16 @@ export class MarketplaceApi extends BaseAPI {
      */
     public async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
         return MarketplaceApiFp(this.configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get slug availablity
+     * @param {string} slug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MarketplaceApi
+     */
+    public async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return MarketplaceApiFp(this.configuration).merchantsControllerGetSlug(slug, options).then((request) => request(this.axios, this.basePath));
     }
 }

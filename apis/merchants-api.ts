@@ -871,6 +871,46 @@ export const MerchantsApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        merchantsControllerGetSlug: async (slug: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'slug' is not null or undefined
+            if (slug === null || slug === undefined) {
+                throw new RequiredError('slug','Required parameter slug was null or undefined when calling merchantsControllerGetSlug.');
+            }
+            const localVarPath = `/v1/merchants/slug/{slug}`
+                .replace(`{${"slug"}}`, encodeURIComponent(String(slug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1102,6 +1142,20 @@ export const MerchantsApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await MerchantsApiAxiosParamCreator(configuration).merchantsControllerGetSlug(slug, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -1276,6 +1330,16 @@ export const MerchantsApiFactory = function (configuration?: Configuration, base
          */
         async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
             return MerchantsApiFp(configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get slug availablity
+         * @param {string} slug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return MerchantsApiFp(configuration).merchantsControllerGetSlug(slug, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1466,5 +1530,16 @@ export class MerchantsApi extends BaseAPI {
      */
     public async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
         return MerchantsApiFp(this.configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Get slug availablity
+     * @param {string} slug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    public async merchantsControllerGetSlug(slug: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return MerchantsApiFp(this.configuration).merchantsControllerGetSlug(slug, options).then((request) => request(this.axios, this.basePath));
     }
 }
