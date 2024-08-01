@@ -13,9 +13,12 @@ import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
 import { AccessTokenResponseDto } from '../models';
+import { Enable2FAResponseDto } from '../models';
 import { RefreshTokenDto } from '../models';
 import { RequestOtpDTO } from '../models';
 import { SignInResponseDto } from '../models';
+import { TwoFARequestDto } from '../models';
+import { Verify2FARequestDto } from '../models';
 import { VerifyOtpDTO } from '../models';
 import { VerifyUserDTO } from '../models';
 /**
@@ -23,6 +26,29 @@ import { VerifyUserDTO } from '../models';
  * @export
  */
 export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Disable 2FA for user
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerDisable2FA: (body: TwoFARequestDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Emable user 2fa QR code
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerEnable2FA: (body: TwoFARequestDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Generate user 2fa QR code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerGenerate2FA: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Login VIA Discord OAuth
@@ -56,6 +82,14 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
     authControllerVerify: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
+     * @summary Verify user 2fa QR code
+     * @param {Verify2FARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify2FA: (body: Verify2FARequestDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Verify OTP
      * @param {VerifyOtpDTO} body
      * @param {*} [options] Override http request option.
@@ -68,6 +102,29 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
  * @export
  */
 export declare const AuthApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Disable 2FA for user
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerDisable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
+    /**
+     *
+     * @summary Emable user 2fa QR code
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerEnable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Enable2FAResponseDto>>>;
+    /**
+     *
+     * @summary Generate user 2fa QR code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerGenerate2FA(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Enable2FAResponseDto>>>;
     /**
      *
      * @summary Login VIA Discord OAuth
@@ -101,6 +158,14 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
     authControllerVerify(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<VerifyUserDTO>>>;
     /**
      *
+     * @summary Verify user 2fa QR code
+     * @param {Verify2FARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>>;
+    /**
+     *
      * @summary Verify OTP
      * @param {VerifyOtpDTO} body
      * @param {*} [options] Override http request option.
@@ -113,6 +178,29 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const AuthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Disable 2FA for user
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerDisable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    /**
+     *
+     * @summary Emable user 2fa QR code
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerEnable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Enable2FAResponseDto>>;
+    /**
+     *
+     * @summary Generate user 2fa QR code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerGenerate2FA(options?: AxiosRequestConfig): Promise<AxiosResponse<Enable2FAResponseDto>>;
     /**
      *
      * @summary Login VIA Discord OAuth
@@ -144,6 +232,14 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
      * @throws {RequiredError}
      */
     authControllerVerify(options?: AxiosRequestConfig): Promise<AxiosResponse<VerifyUserDTO>>;
+    /**
+     *
+     * @summary Verify user 2fa QR code
+     * @param {Verify2FARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
     /**
      *
      * @summary Verify OTP
@@ -162,6 +258,32 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
 export declare class AuthApi extends BaseAPI {
     /**
      *
+     * @summary Disable 2FA for user
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerDisable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    /**
+     *
+     * @summary Emable user 2fa QR code
+     * @param {TwoFARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerEnable2FA(body: TwoFARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Enable2FAResponseDto>>;
+    /**
+     *
+     * @summary Generate user 2fa QR code
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerGenerate2FA(options?: AxiosRequestConfig): Promise<AxiosResponse<Enable2FAResponseDto>>;
+    /**
+     *
      * @summary Login VIA Discord OAuth
      * @param {string} code
      * @param {*} [options] Override http request option.
@@ -195,6 +317,15 @@ export declare class AuthApi extends BaseAPI {
      * @memberof AuthApi
      */
     authControllerVerify(options?: AxiosRequestConfig): Promise<AxiosResponse<VerifyUserDTO>>;
+    /**
+     *
+     * @summary Verify user 2fa QR code
+     * @param {Verify2FARequestDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
     /**
      *
      * @summary Verify OTP
