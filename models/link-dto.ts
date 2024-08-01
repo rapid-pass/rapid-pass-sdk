@@ -36,7 +36,7 @@ export interface LinkDto {
      * @type {string}
      * @memberof LinkDto
      */
-    visibility: string;
+    visibility: LinkDtoVisibilityEnum;
 
     /**
      * @type {string}
@@ -62,3 +62,14 @@ export interface LinkDto {
      */
     planPrice: number;
 }
+
+/**
+ * @export
+ * @enum {string}
+ */
+export enum LinkDtoVisibilityEnum {
+    PUBLIC = 'PUBLIC',
+    HIDDEN = 'HIDDEN',
+    PASSWORD = 'PASSWORD'
+}
+

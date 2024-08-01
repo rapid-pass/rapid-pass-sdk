@@ -13,3 +13,14 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateLinkDtoVisibilityEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var CreateLinkDtoVisibilityEnum;
+(function (CreateLinkDtoVisibilityEnum) {
+    CreateLinkDtoVisibilityEnum["PUBLIC"] = "PUBLIC";
+    CreateLinkDtoVisibilityEnum["HIDDEN"] = "HIDDEN";
+    CreateLinkDtoVisibilityEnum["PASSWORD"] = "PASSWORD";
+})(CreateLinkDtoVisibilityEnum = exports.CreateLinkDtoVisibilityEnum || (exports.CreateLinkDtoVisibilityEnum = {}));

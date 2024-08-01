@@ -16,36 +16,25 @@
  * 
  *
  * @export
- * @interface CreateLinkDto
+ * @interface FaqDto
  */
-export interface CreateLinkDto {
-
-    /**
-     * @type {number}
-     * @memberof CreateLinkDto
-     */
-    stock?: number;
+export interface FaqDto {
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof FaqDto
      */
-    password?: string;
+    question: string;
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof FaqDto
      */
-    visibility: CreateLinkDtoVisibilityEnum;
-}
+    answer: string;
 
-/**
- * @export
- * @enum {string}
- */
-export enum CreateLinkDtoVisibilityEnum {
-    PUBLIC = 'PUBLIC',
-    HIDDEN = 'HIDDEN',
-    PASSWORD = 'PASSWORD'
+    /**
+     * @type {string}
+     * @memberof FaqDto
+     */
+    id: string;
 }
-

@@ -40,7 +40,7 @@ export interface VerifyUserDTO {
      * @type {string}
      * @memberof VerifyUserDTO
      */
-    role: string;
+    role: VerifyUserDTORoleEnum;
     /**
      * @type {string}
      * @memberof VerifyUserDTO
@@ -56,4 +56,13 @@ export interface VerifyUserDTO {
      * @memberof VerifyUserDTO
      */
     discordAvatar: string;
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum VerifyUserDTORoleEnum {
+    ADMIN = "ADMIN",
+    USER = "USER",
+    MERCHANT = "MERCHANT"
 }

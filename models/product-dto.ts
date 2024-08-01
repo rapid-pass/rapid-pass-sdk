@@ -42,7 +42,7 @@ export interface ProductDto {
      * @type {string}
      * @memberof ProductDto
      */
-    status: string;
+    status: ProductDtoStatusEnum;
 
     /**
      * @type {number}
@@ -50,3 +50,16 @@ export interface ProductDto {
      */
     activeUsers: number;
 }
+
+/**
+ * @export
+ * @enum {string}
+ */
+export enum ProductDtoStatusEnum {
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE',
+    DELETED = 'DELETED',
+    ARCHIVED = 'ARCHIVED',
+    RESTRICTED = 'RESTRICTED'
+}
+

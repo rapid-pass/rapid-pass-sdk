@@ -12,6 +12,9 @@
  * Do not edit the class manually.
  */
 
+import { FaqDto } from './faq-dto';
+import { ReviewDto } from './review-dto';
+import { UpsertSocialMediaDto } from './upsert-social-media-dto';
  /**
  * 
  *
@@ -19,12 +22,6 @@
  * @interface MerchantDto
  */
 export interface MerchantDto {
-
-    /**
-     * @type {string}
-     * @memberof MerchantDto
-     */
-    id: string;
 
     /**
      * @type {string}
@@ -42,5 +39,41 @@ export interface MerchantDto {
      * @type {string}
      * @memberof MerchantDto
      */
+    motto: string;
+
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
+    description: string;
+
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
+    id: string;
+
+    /**
+     * @type {string}
+     * @memberof MerchantDto
+     */
     status: string;
+
+    /**
+     * @type {UpsertSocialMediaDto}
+     * @memberof MerchantDto
+     */
+    socialMedia?: UpsertSocialMediaDto;
+
+    /**
+     * @type {Array<FaqDto>}
+     * @memberof MerchantDto
+     */
+    faqs?: Array<FaqDto>;
+
+    /**
+     * @type {Array<ReviewDto>}
+     * @memberof MerchantDto
+     */
+    reviews?: Array<ReviewDto>;
 }

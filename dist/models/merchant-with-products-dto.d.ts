@@ -10,58 +10,64 @@
  * Do not edit the class manually.
  */
 import { FaqDto } from './faq-dto';
+import { ProductDto } from './product-dto';
 import { ReviewDto } from './review-dto';
 import { UpsertSocialMediaDto } from './upsert-social-media-dto';
 /**
 *
 *
 * @export
-* @interface MerchantDto
+* @interface MerchantWithProductsDto
 */
-export interface MerchantDto {
+export interface MerchantWithProductsDto {
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     name: string;
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     slug: string;
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     motto: string;
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     description: string;
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     id: string;
     /**
      * @type {string}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     status: string;
     /**
      * @type {UpsertSocialMediaDto}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     socialMedia?: UpsertSocialMediaDto;
     /**
      * @type {Array<FaqDto>}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     faqs?: Array<FaqDto>;
     /**
      * @type {Array<ReviewDto>}
-     * @memberof MerchantDto
+     * @memberof MerchantWithProductsDto
      */
     reviews?: Array<ReviewDto>;
+    /**
+     * @type {Array<ProductDto>}
+     * @memberof MerchantWithProductsDto
+     */
+    products: Array<ProductDto>;
 }

@@ -12,7 +12,7 @@
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
-import { MerchantDto } from '../models';
+import { MerchantWithProductsDto } from '../models';
 /**
  * MarketplaceApi - axios parameter creator
  * @export
@@ -47,7 +47,7 @@ export declare const MarketplaceApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>>;
     /**
      *
      * @summary Get slug availablity
@@ -69,7 +69,7 @@ export declare const MarketplaceApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity
@@ -94,7 +94,7 @@ export declare class MarketplaceApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MarketplaceApi
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity

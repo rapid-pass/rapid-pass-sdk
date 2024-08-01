@@ -13,3 +13,14 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatePlanDtoPaymentModelEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var CreatePlanDtoPaymentModelEnum;
+(function (CreatePlanDtoPaymentModelEnum) {
+    CreatePlanDtoPaymentModelEnum["ONETIME"] = "ONETIME";
+    CreatePlanDtoPaymentModelEnum["SUBSCRIPTION"] = "SUBSCRIPTION";
+    CreatePlanDtoPaymentModelEnum["LIFETIME"] = "LIFETIME";
+})(CreatePlanDtoPaymentModelEnum = exports.CreatePlanDtoPaymentModelEnum || (exports.CreatePlanDtoPaymentModelEnum = {}));

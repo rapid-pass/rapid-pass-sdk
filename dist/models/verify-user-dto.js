@@ -13,3 +13,14 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.VerifyUserDTORoleEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var VerifyUserDTORoleEnum;
+(function (VerifyUserDTORoleEnum) {
+    VerifyUserDTORoleEnum["ADMIN"] = "ADMIN";
+    VerifyUserDTORoleEnum["USER"] = "USER";
+    VerifyUserDTORoleEnum["MERCHANT"] = "MERCHANT";
+})(VerifyUserDTORoleEnum = exports.VerifyUserDTORoleEnum || (exports.VerifyUserDTORoleEnum = {}));

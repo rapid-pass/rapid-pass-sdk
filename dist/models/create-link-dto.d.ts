@@ -30,5 +30,14 @@ export interface CreateLinkDto {
      * @type {string}
      * @memberof CreateLinkDto
      */
-    visibility: string;
+    visibility: CreateLinkDtoVisibilityEnum;
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum CreateLinkDtoVisibilityEnum {
+    PUBLIC = "PUBLIC",
+    HIDDEN = "HIDDEN",
+    PASSWORD = "PASSWORD"
 }

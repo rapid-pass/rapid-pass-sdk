@@ -25,6 +25,11 @@ export interface CreatePlanDto {
      * @type {number}
      * @memberof CreatePlanDto
      */
+    initialPrice: number;
+    /**
+     * @type {number}
+     * @memberof CreatePlanDto
+     */
     durationDays: number;
     /**
      * @type {number}
@@ -40,5 +45,14 @@ export interface CreatePlanDto {
      * @type {string}
      * @memberof CreatePlanDto
      */
-    paymentModel: string;
+    paymentModel: CreatePlanDtoPaymentModelEnum;
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export declare enum CreatePlanDtoPaymentModelEnum {
+    ONETIME = "ONETIME",
+    SUBSCRIPTION = "SUBSCRIPTION",
+    LIFETIME = "LIFETIME"
 }

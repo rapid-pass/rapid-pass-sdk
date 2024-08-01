@@ -15,9 +15,11 @@ import { RequestArgs, BaseAPI } from '../base';
 import { CreateLinkDto } from '../models';
 import { CreatePlanDto } from '../models';
 import { CreateProductDto } from '../models';
+import { FaqDto } from '../models';
 import { IntegrationDto } from '../models';
 import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
+import { MerchantWithProductsDto } from '../models';
 import { PaginatedIntegrationResponseDto } from '../models';
 import { PaginatedLinkResponseDto } from '../models';
 import { PaginatedPlanResponseDto } from '../models';
@@ -25,6 +27,9 @@ import { PaginatedProductResponseDto } from '../models';
 import { PlanDto } from '../models';
 import { ProductDto } from '../models';
 import { UpdateIntegrationDto } from '../models';
+import { UpdateMerchantDto } from '../models';
+import { UpsertFaqDto } from '../models';
+import { UpsertSocialMediaDto } from '../models';
 /**
  * MerchantsApi - axios parameter creator
  * @export
@@ -41,6 +46,15 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     dashboardControllerCreateLink: (body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Create merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerCreateMerchantFaq: (body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Create a plan for a product
@@ -60,6 +74,15 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     dashboardControllerCreateProduct: (body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Delete merchant FAQ info
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerDeleteMerchantFaq: (merchantId: string, faqId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -119,7 +142,7 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetMerchants: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    dashboardControllerGetMerchant: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get all plans for a product
@@ -162,6 +185,34 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
     dashboardControllerUpdateIntegration: (body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
+     * @summary Update merchant info
+     * @param {UpdateMerchantDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchant: (body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Update merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchantFaq: (body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Upsert merchant social media info
+     * @param {UpsertSocialMediaDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpsertMerchantSocials: (body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get merchant info
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
@@ -195,6 +246,15 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
     dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<LinkDto>>>;
     /**
      *
+     * @summary Create merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FaqDto>>>;
+    /**
+     *
      * @summary Create a plan for a product
      * @param {CreatePlanDto} body
      * @param {string} merchantId
@@ -212,6 +272,15 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>>;
+    /**
+     *
+     * @summary Delete merchant FAQ info
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -271,7 +340,7 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
     /**
      *
      * @summary Get all plans for a product
@@ -314,12 +383,40 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
     dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<IntegrationDto>>>;
     /**
      *
+     * @summary Update merchant info
+     * @param {UpdateMerchantDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    /**
+     *
+     * @summary Update merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FaqDto>>>;
+    /**
+     *
+     * @summary Upsert merchant social media info
+     * @param {UpsertSocialMediaDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<UpsertSocialMediaDto>>>;
+    /**
+     *
      * @summary Get merchant info
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>>;
     /**
      *
      * @summary Get slug availablity
@@ -347,6 +444,15 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
     dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
+     * @summary Create merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>>;
+    /**
+     *
      * @summary Create a plan for a product
      * @param {CreatePlanDto} body
      * @param {string} merchantId
@@ -364,6 +470,15 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    /**
+     *
+     * @summary Delete merchant FAQ info
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -423,7 +538,7 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get all plans for a product
@@ -466,12 +581,40 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
     dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
+     * @summary Update merchant info
+     * @param {UpdateMerchantDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    /**
+     *
+     * @summary Update merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>>;
+    /**
+     *
+     * @summary Upsert merchant social media info
+     * @param {UpsertSocialMediaDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<UpsertSocialMediaDto>>;
+    /**
+     *
      * @summary Get merchant info
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity
@@ -502,6 +645,16 @@ export declare class MerchantsApi extends BaseAPI {
     dashboardControllerCreateLink(body: CreateLinkDto, merchantId: string, productId: string, planId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<LinkDto>>;
     /**
      *
+     * @summary Create merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>>;
+    /**
+     *
      * @summary Create a plan for a product
      * @param {CreatePlanDto} body
      * @param {string} merchantId
@@ -521,6 +674,16 @@ export declare class MerchantsApi extends BaseAPI {
      * @memberof MerchantsApi
      */
     dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>>;
+    /**
+     *
+     * @summary Delete merchant FAQ info
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
     /**
      *
      * @summary Get all integrations for a merchant
@@ -586,7 +749,7 @@ export declare class MerchantsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
     /**
      *
      * @summary Get all plans for a product
@@ -633,13 +796,44 @@ export declare class MerchantsApi extends BaseAPI {
     dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<IntegrationDto>>;
     /**
      *
+     * @summary Update merchant info
+     * @param {UpdateMerchantDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    /**
+     *
+     * @summary Update merchant FAQ info
+     * @param {UpsertFaqDto} body
+     * @param {string} merchantId
+     * @param {string} faqId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>>;
+    /**
+     *
+     * @summary Upsert merchant social media info
+     * @param {UpsertSocialMediaDto} body
+     * @param {string} merchantId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<UpsertSocialMediaDto>>;
+    /**
+     *
      * @summary Get merchant info
      * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>>;
+    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity

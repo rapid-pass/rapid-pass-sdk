@@ -16,36 +16,31 @@
  * 
  *
  * @export
- * @interface CreateLinkDto
+ * @interface UpdateMerchantDto
  */
-export interface CreateLinkDto {
-
-    /**
-     * @type {number}
-     * @memberof CreateLinkDto
-     */
-    stock?: number;
+export interface UpdateMerchantDto {
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof UpdateMerchantDto
      */
-    password?: string;
+    name: string;
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof UpdateMerchantDto
      */
-    visibility: CreateLinkDtoVisibilityEnum;
-}
+    slug: string;
 
-/**
- * @export
- * @enum {string}
- */
-export enum CreateLinkDtoVisibilityEnum {
-    PUBLIC = 'PUBLIC',
-    HIDDEN = 'HIDDEN',
-    PASSWORD = 'PASSWORD'
-}
+    /**
+     * @type {string}
+     * @memberof UpdateMerchantDto
+     */
+    motto: string;
 
+    /**
+     * @type {string}
+     * @memberof UpdateMerchantDto
+     */
+    description: string;
+}

@@ -16,36 +16,31 @@
  * 
  *
  * @export
- * @interface CreateLinkDto
+ * @interface ReviewDto
  */
-export interface CreateLinkDto {
+export interface ReviewDto {
+
+    /**
+     * @type {string}
+     * @memberof ReviewDto
+     */
+    content: string;
 
     /**
      * @type {number}
-     * @memberof CreateLinkDto
+     * @memberof ReviewDto
      */
-    stock?: number;
+    rating: number;
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof ReviewDto
      */
-    password?: string;
+    userId: string;
 
     /**
      * @type {string}
-     * @memberof CreateLinkDto
+     * @memberof ReviewDto
      */
-    visibility: CreateLinkDtoVisibilityEnum;
+    id: string;
 }
-
-/**
- * @export
- * @enum {string}
- */
-export enum CreateLinkDtoVisibilityEnum {
-    PUBLIC = 'PUBLIC',
-    HIDDEN = 'HIDDEN',
-    PASSWORD = 'PASSWORD'
-}
-

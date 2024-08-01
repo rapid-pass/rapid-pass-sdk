@@ -20,6 +20,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 import { CreateLinkDto } from '../models';
 import { CreatePlanDto } from '../models';
 import { CreateProductDto } from '../models';
+import { FaqDto } from '../models';
 import { IntegrationDto } from '../models';
 import { LinkDto } from '../models';
 import { MerchantDto } from '../models';
@@ -31,6 +32,9 @@ import { PlanDto } from '../models';
 import { ProductDto } from '../models';
 import { StripeLinkDto } from '../models';
 import { UpdateIntegrationDto } from '../models';
+import { UpdateMerchantDto } from '../models';
+import { UpsertFaqDto } from '../models';
+import { UpsertSocialMediaDto } from '../models';
 /**
  * DashboardApi - axios parameter creator
  * @export
@@ -68,6 +72,64 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
                 .replace(`{${"productId"}}`, encodeURIComponent(String(productId)))
                 .replace(`{${"planId"}}`, encodeURIComponent(String(planId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Create merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dashboardControllerCreateMerchantFaq: async (body: UpsertFaqDto, merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling dashboardControllerCreateMerchantFaq.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerCreateMerchantFaq.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/faq`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -223,6 +285,61 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete merchant FAQ info
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dashboardControllerDeleteMerchantFaq: async (merchantId: string, faqId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerDeleteMerchantFaq.');
+            }
+            // verify required parameter 'faqId' is not null or undefined
+            if (faqId === null || faqId === undefined) {
+                throw new RequiredError('faqId','Required parameter faqId was null or undefined when calling dashboardControllerDeleteMerchantFaq.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/faq/{faqId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"faqId"}}`, encodeURIComponent(String(faqId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
@@ -547,10 +664,10 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dashboardControllerGetMerchants: async (merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        dashboardControllerGetMerchant: async (merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'merchantId' is not null or undefined
             if (merchantId === null || merchantId === undefined) {
-                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerGetMerchants.');
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerGetMerchant.');
             }
             const localVarPath = `/v1/dashboard/merchants/{merchantId}`
                 .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
@@ -834,6 +951,186 @@ export const DashboardApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
+         * @summary Update merchant info
+         * @param {UpdateMerchantDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dashboardControllerUpdateMerchant: async (body: UpdateMerchantDto, merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling dashboardControllerUpdateMerchant.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerUpdateMerchant.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dashboardControllerUpdateMerchantFaq: async (body: UpsertFaqDto, merchantId: string, faqId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling dashboardControllerUpdateMerchantFaq.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerUpdateMerchantFaq.');
+            }
+            // verify required parameter 'faqId' is not null or undefined
+            if (faqId === null || faqId === undefined) {
+                throw new RequiredError('faqId','Required parameter faqId was null or undefined when calling dashboardControllerUpdateMerchantFaq.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/faq/{faqId}`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)))
+                .replace(`{${"faqId"}}`, encodeURIComponent(String(faqId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Upsert merchant social media info
+         * @param {UpsertSocialMediaDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dashboardControllerUpsertMerchantSocials: async (body: UpsertSocialMediaDto, merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling dashboardControllerUpsertMerchantSocials.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling dashboardControllerUpsertMerchantSocials.');
+            }
+            const localVarPath = `/v1/dashboard/merchants/{merchantId}/socials`
+                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -909,6 +1206,21 @@ export const DashboardApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Create merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FaqDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerCreateMerchantFaq(body, merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Create a plan for a product
          * @param {CreatePlanDto} body 
          * @param {string} merchantId 
@@ -933,6 +1245,21 @@ export const DashboardApiFp = function(configuration?: Configuration) {
          */
         async dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ProductDto>>> {
             const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerCreateProduct(body, merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Delete merchant FAQ info
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerDeleteMerchantFaq(merchantId, faqId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1027,8 +1354,8 @@ export const DashboardApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
-            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerGetMerchants(merchantId, options);
+        async dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerGetMerchant(merchantId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1100,6 +1427,52 @@ export const DashboardApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Update merchant info
+         * @param {UpdateMerchantDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerUpdateMerchant(body, merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Update merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<FaqDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerUpdateMerchantFaq(body, merchantId, faqId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Upsert merchant social media info
+         * @param {UpsertSocialMediaDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<UpsertSocialMediaDto>>> {
+            const localVarAxiosArgs = await DashboardApiAxiosParamCreator(configuration).dashboardControllerUpsertMerchantSocials(body, merchantId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -1136,6 +1509,17 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
+         * @summary Create merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>> {
+            return DashboardApiFp(configuration).dashboardControllerCreateMerchantFaq(body, merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Create a plan for a product
          * @param {CreatePlanDto} body 
          * @param {string} merchantId 
@@ -1156,6 +1540,17 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
          */
         async dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<ProductDto>> {
             return DashboardApiFp(configuration).dashboardControllerCreateProduct(body, merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete merchant FAQ info
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return DashboardApiFp(configuration).dashboardControllerDeleteMerchantFaq(merchantId, faqId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1226,8 +1621,8 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
-            return DashboardApiFp(configuration).dashboardControllerGetMerchants(merchantId, options).then((request) => request(axios, basePath));
+        async dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
+            return DashboardApiFp(configuration).dashboardControllerGetMerchant(merchantId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1279,6 +1674,40 @@ export const DashboardApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
+         * @summary Update merchant info
+         * @param {UpdateMerchantDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
+            return DashboardApiFp(configuration).dashboardControllerUpdateMerchant(body, merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update merchant FAQ info
+         * @param {UpsertFaqDto} body 
+         * @param {string} merchantId 
+         * @param {string} faqId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<FaqDto>> {
+            return DashboardApiFp(configuration).dashboardControllerUpdateMerchantFaq(body, merchantId, faqId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Upsert merchant social media info
+         * @param {UpsertSocialMediaDto} body 
+         * @param {string} merchantId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<UpsertSocialMediaDto>> {
+            return DashboardApiFp(configuration).dashboardControllerUpsertMerchantSocials(body, merchantId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Create a new Stripe Connect account
          * @param {string} merchantId 
          * @param {*} [options] Override http request option.
@@ -1313,6 +1742,18 @@ export class DashboardApi extends BaseAPI {
     }
     /**
      * 
+     * @summary Create merchant FAQ info
+     * @param {UpsertFaqDto} body 
+     * @param {string} merchantId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async dashboardControllerCreateMerchantFaq(body: UpsertFaqDto, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<FaqDto>> {
+        return DashboardApiFp(this.configuration).dashboardControllerCreateMerchantFaq(body, merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
      * @summary Create a plan for a product
      * @param {CreatePlanDto} body 
      * @param {string} merchantId 
@@ -1335,6 +1776,18 @@ export class DashboardApi extends BaseAPI {
      */
     public async dashboardControllerCreateProduct(body: CreateProductDto, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<ProductDto>> {
         return DashboardApiFp(this.configuration).dashboardControllerCreateProduct(body, merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Delete merchant FAQ info
+     * @param {string} merchantId 
+     * @param {string} faqId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async dashboardControllerDeleteMerchantFaq(merchantId: string, faqId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return DashboardApiFp(this.configuration).dashboardControllerDeleteMerchantFaq(merchantId, faqId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -1411,8 +1864,8 @@ export class DashboardApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DashboardApi
      */
-    public async dashboardControllerGetMerchants(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
-        return DashboardApiFp(this.configuration).dashboardControllerGetMerchants(merchantId, options).then((request) => request(this.axios, this.basePath));
+    public async dashboardControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
+        return DashboardApiFp(this.configuration).dashboardControllerGetMerchant(merchantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -1465,6 +1918,43 @@ export class DashboardApi extends BaseAPI {
      */
     public async dashboardControllerUpdateIntegration(body: UpdateIntegrationDto, merchantId: string, integrationId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<IntegrationDto>> {
         return DashboardApiFp(this.configuration).dashboardControllerUpdateIntegration(body, merchantId, integrationId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Update merchant info
+     * @param {UpdateMerchantDto} body 
+     * @param {string} merchantId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async dashboardControllerUpdateMerchant(body: UpdateMerchantDto, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
+        return DashboardApiFp(this.configuration).dashboardControllerUpdateMerchant(body, merchantId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Update merchant FAQ info
+     * @param {UpsertFaqDto} body 
+     * @param {string} merchantId 
+     * @param {string} faqId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async dashboardControllerUpdateMerchantFaq(body: UpsertFaqDto, merchantId: string, faqId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<FaqDto>> {
+        return DashboardApiFp(this.configuration).dashboardControllerUpdateMerchantFaq(body, merchantId, faqId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Upsert merchant social media info
+     * @param {UpsertSocialMediaDto} body 
+     * @param {string} merchantId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardApi
+     */
+    public async dashboardControllerUpsertMerchantSocials(body: UpsertSocialMediaDto, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<UpsertSocialMediaDto>> {
+        return DashboardApiFp(this.configuration).dashboardControllerUpsertMerchantSocials(body, merchantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

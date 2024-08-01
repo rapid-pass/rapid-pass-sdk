@@ -13,3 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductDtoStatusEnum = void 0;
+/**
+ * @export
+ * @enum {string}
+ */
+var ProductDtoStatusEnum;
+(function (ProductDtoStatusEnum) {
+    ProductDtoStatusEnum["ACTIVE"] = "ACTIVE";
+    ProductDtoStatusEnum["INACTIVE"] = "INACTIVE";
+    ProductDtoStatusEnum["DELETED"] = "DELETED";
+    ProductDtoStatusEnum["ARCHIVED"] = "ARCHIVED";
+    ProductDtoStatusEnum["RESTRICTED"] = "RESTRICTED";
+})(ProductDtoStatusEnum = exports.ProductDtoStatusEnum || (exports.ProductDtoStatusEnum = {}));

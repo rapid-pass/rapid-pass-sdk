@@ -30,6 +30,12 @@ export interface PlanDto {
      * @type {number}
      * @memberof PlanDto
      */
+    initialPrice: number;
+
+    /**
+     * @type {number}
+     * @memberof PlanDto
+     */
     durationDays: number;
 
     /**
@@ -48,7 +54,7 @@ export interface PlanDto {
      * @type {string}
      * @memberof PlanDto
      */
-    paymentModel: string;
+    paymentModel: PlanDtoPaymentModelEnum;
 
     /**
      * @type {string}
@@ -62,3 +68,14 @@ export interface PlanDto {
      */
     activeUsers: number;
 }
+
+/**
+ * @export
+ * @enum {string}
+ */
+export enum PlanDtoPaymentModelEnum {
+    ONETIME = 'ONETIME',
+    SUBSCRIPTION = 'SUBSCRIPTION',
+    LIFETIME = 'LIFETIME'
+}
+

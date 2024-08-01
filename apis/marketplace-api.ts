@@ -17,7 +17,7 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { MerchantDto } from '../models';
+import { MerchantWithProductsDto } from '../models';
 /**
  * MarketplaceApi - axios parameter creator
  * @export
@@ -120,7 +120,7 @@ export const MarketplaceApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantDto>>> {
+        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>> {
             const localVarAxiosArgs = await MarketplaceApiAxiosParamCreator(configuration).merchantsControllerGetMerchant(merchantId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -157,7 +157,7 @@ export const MarketplaceApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantDto>> {
+        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>> {
             return MarketplaceApiFp(configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -188,7 +188,7 @@ export class MarketplaceApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MarketplaceApi
      */
-    public async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantDto>> {
+    public async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantWithProductsDto>> {
         return MarketplaceApiFp(this.configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
