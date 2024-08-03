@@ -214,11 +214,11 @@ export declare const MerchantsApiAxiosParamCreator: (configuration?: Configurati
     /**
      *
      * @summary Get merchant info
-     * @param {string} merchantId
+     * @param {string} slug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant: (merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    merchantsControllerGetMerchant: (slug: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get slug availablity
@@ -412,11 +412,11 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Get merchant info
-     * @param {string} merchantId
+     * @param {string} slug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>>;
+    merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>>;
     /**
      *
      * @summary Get slug availablity
@@ -610,11 +610,11 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
     /**
      *
      * @summary Get merchant info
-     * @param {string} merchantId
+     * @param {string} slug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
+    merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity
@@ -828,12 +828,12 @@ export declare class MerchantsApi extends BaseAPI {
     /**
      *
      * @summary Get merchant info
-     * @param {string} merchantId
+     * @param {string} slug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
+    merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>>;
     /**
      *
      * @summary Get slug availablity

@@ -90,21 +90,21 @@ var MarketplaceApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Get merchant info
-         * @param {string} merchantId
+         * @param {string} slug
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchant: function (merchantId, options) {
+        merchantsControllerGetMerchant: function (slug, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions;
                 return __generator(this, function (_a) {
-                    // verify required parameter 'merchantId' is not null or undefined
-                    if (merchantId === null || merchantId === undefined) {
-                        throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchant.');
+                    // verify required parameter 'slug' is not null or undefined
+                    if (slug === null || slug === undefined) {
+                        throw new base_1.RequiredError('slug', 'Required parameter slug was null or undefined when calling merchantsControllerGetMerchant.');
                     }
-                    localVarPath = "/v1/merchants/{merchantId}"
-                        .replace("{".concat("merchantId", "}"), encodeURIComponent(String(merchantId)));
+                    localVarPath = "/v1/merchants/{slug}"
+                        .replace("{".concat("slug", "}"), encodeURIComponent(String(slug)));
                     localVarUrlObj = new URL(localVarPath, 'https://example.com');
                     if (configuration) {
                         baseOptions = configuration.baseOptions;
@@ -183,16 +183,16 @@ var MarketplaceApiFp = function (configuration) {
         /**
          *
          * @summary Get merchant info
-         * @param {string} merchantId
+         * @param {string} slug
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchant: function (merchantId, options) {
+        merchantsControllerGetMerchant: function (slug, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MarketplaceApiAxiosParamCreator)(configuration).merchantsControllerGetMerchant(merchantId, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MarketplaceApiAxiosParamCreator)(configuration).merchantsControllerGetMerchant(slug, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -242,14 +242,14 @@ var MarketplaceApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary Get merchant info
-         * @param {string} merchantId
+         * @param {string} slug
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchant: function (merchantId, options) {
+        merchantsControllerGetMerchant: function (slug, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MarketplaceApiFp)(configuration).merchantsControllerGetMerchant(merchantId, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MarketplaceApiFp)(configuration).merchantsControllerGetMerchant(slug, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -284,16 +284,16 @@ var MarketplaceApi = /** @class */ (function (_super) {
     /**
      *
      * @summary Get merchant info
-     * @param {string} merchantId
+     * @param {string} slug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MarketplaceApi
      */
-    MarketplaceApi.prototype.merchantsControllerGetMerchant = function (merchantId, options) {
+    MarketplaceApi.prototype.merchantsControllerGetMerchant = function (slug, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MarketplaceApiFp)(this.configuration).merchantsControllerGetMerchant(merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MarketplaceApiFp)(this.configuration).merchantsControllerGetMerchant(slug, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

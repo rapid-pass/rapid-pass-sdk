@@ -27,17 +27,17 @@ export const MarketplaceApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @summary Get merchant info
-         * @param {string} merchantId 
+         * @param {string} slug 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        merchantsControllerGetMerchant: async (merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'merchantId' is not null or undefined
-            if (merchantId === null || merchantId === undefined) {
-                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling merchantsControllerGetMerchant.');
+        merchantsControllerGetMerchant: async (slug: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'slug' is not null or undefined
+            if (slug === null || slug === undefined) {
+                throw new RequiredError('slug','Required parameter slug was null or undefined when calling merchantsControllerGetMerchant.');
             }
-            const localVarPath = `/v1/merchants/{merchantId}`
-                .replace(`{${"merchantId"}}`, encodeURIComponent(String(merchantId)));
+            const localVarPath = `/v1/merchants/{slug}`
+                .replace(`{${"slug"}}`, encodeURIComponent(String(slug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -116,12 +116,12 @@ export const MarketplaceApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get merchant info
-         * @param {string} merchantId 
+         * @param {string} slug 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>> {
-            const localVarAxiosArgs = await MarketplaceApiAxiosParamCreator(configuration).merchantsControllerGetMerchant(merchantId, options);
+        async merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MerchantWithProductsDto>>> {
+            const localVarAxiosArgs = await MarketplaceApiAxiosParamCreator(configuration).merchantsControllerGetMerchant(slug, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -153,12 +153,12 @@ export const MarketplaceApiFactory = function (configuration?: Configuration, ba
         /**
          * 
          * @summary Get merchant info
-         * @param {string} merchantId 
+         * @param {string} slug 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>> {
-            return MarketplaceApiFp(configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(axios, basePath));
+        async merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig): Promise<AxiosResponse<MerchantWithProductsDto>> {
+            return MarketplaceApiFp(configuration).merchantsControllerGetMerchant(slug, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -183,13 +183,13 @@ export class MarketplaceApi extends BaseAPI {
     /**
      * 
      * @summary Get merchant info
-     * @param {string} merchantId 
+     * @param {string} slug 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MarketplaceApi
      */
-    public async merchantsControllerGetMerchant(merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantWithProductsDto>> {
-        return MarketplaceApiFp(this.configuration).merchantsControllerGetMerchant(merchantId, options).then((request) => request(this.axios, this.basePath));
+    public async merchantsControllerGetMerchant(slug: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<MerchantWithProductsDto>> {
+        return MarketplaceApiFp(this.configuration).merchantsControllerGetMerchant(slug, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
