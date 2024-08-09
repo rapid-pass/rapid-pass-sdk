@@ -9,7 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { PlanDto } from './plan-dto';
+import { PlanWithActiveUsersDto } from './plan-with-active-users-dto';
 /**
 *
 *
@@ -18,10 +18,10 @@ import { PlanDto } from './plan-dto';
 */
 export interface PaginatedPlanResponseDto {
     /**
-     * @type {Array<PlanDto>}
+     * @type {Array<PlanWithActiveUsersDto>}
      * @memberof PaginatedPlanResponseDto
      */
-    data: Array<PlanDto>;
+    data: Array<PlanWithActiveUsersDto>;
     /**
      * @type {number}
      * @memberof PaginatedPlanResponseDto

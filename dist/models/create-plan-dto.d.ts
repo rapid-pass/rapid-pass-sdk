@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { PaymentType } from './payment-type';
 /**
 *
 *
@@ -46,6 +47,11 @@ export interface CreatePlanDto {
      * @memberof CreatePlanDto
      */
     paymentModel: CreatePlanDtoPaymentModelEnum;
+    /**
+     * @type {Array<PaymentType>}
+     * @memberof CreatePlanDto
+     */
+    paymentTypes: Array<PaymentType>;
 }
 /**
  * @export

@@ -14,55 +14,60 @@ import { PaymentType } from './payment-type';
 *
 *
 * @export
-* @interface PlanDto
+* @interface PlanWithActiveUsersDto
 */
-export interface PlanDto {
+export interface PlanWithActiveUsersDto {
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     price: number;
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     initialPrice: number;
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     durationDays: number;
     /**
      * @type {number}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     freeDays: number;
     /**
      * @type {boolean}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     oncePerUser: boolean;
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
-    paymentModel: PlanDtoPaymentModelEnum;
+    paymentModel: PlanWithActiveUsersDtoPaymentModelEnum;
     /**
      * @type {Array<PaymentType>}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     paymentTypes: Array<PaymentType>;
     /**
      * @type {string}
-     * @memberof PlanDto
+     * @memberof PlanWithActiveUsersDto
      */
     id: string;
+    /**
+     * @type {number}
+     * @memberof PlanWithActiveUsersDto
+     */
+    activeUsers: number;
 }
 /**
  * @export
  * @enum {string}
  */
-export declare enum PlanDtoPaymentModelEnum {
+export declare enum PlanWithActiveUsersDtoPaymentModelEnum {
     ONETIME = "ONETIME",
     SUBSCRIPTION = "SUBSCRIPTION",
     LIFETIME = "LIFETIME"

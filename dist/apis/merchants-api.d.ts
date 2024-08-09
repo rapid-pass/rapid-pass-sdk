@@ -24,7 +24,7 @@ import { PaginatedIntegrationResponseDto } from '../models';
 import { PaginatedLinkResponseDto } from '../models';
 import { PaginatedPlanResponseDto } from '../models';
 import { PaginatedProductResponseDto } from '../models';
-import { PlanDto } from '../models';
+import { PlanWithActiveUsersDto } from '../models';
 import { ProductDto } from '../models';
 import { UpdateIntegrationDto } from '../models';
 import { UpdateMerchantDto } from '../models';
@@ -262,7 +262,7 @@ export declare const MerchantsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanWithActiveUsersDto>>>;
     /**
      *
      * @summary Create new product for a merchant
@@ -460,7 +460,7 @@ export declare const MerchantsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanWithActiveUsersDto>>;
     /**
      *
      * @summary Create new product for a merchant
@@ -663,7 +663,7 @@ export declare class MerchantsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>>;
+    dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanWithActiveUsersDto>>;
     /**
      *
      * @summary Create new product for a merchant

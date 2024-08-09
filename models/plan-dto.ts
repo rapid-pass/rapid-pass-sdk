@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { PaymentType } from './payment-type';
  /**
  * 
  *
@@ -57,16 +58,16 @@ export interface PlanDto {
     paymentModel: PlanDtoPaymentModelEnum;
 
     /**
+     * @type {Array<PaymentType>}
+     * @memberof PlanDto
+     */
+    paymentTypes: Array<PaymentType>;
+
+    /**
      * @type {string}
      * @memberof PlanDto
      */
     id: string;
-
-    /**
-     * @type {number}
-     * @memberof PlanDto
-     */
-    activeUsers: number;
 }
 
 /**

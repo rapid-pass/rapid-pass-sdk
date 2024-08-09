@@ -12,24 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { PlanWithActiveUsersDto } from './plan-with-active-users-dto';
  /**
  * 
  *
  * @export
- * @interface PaginatedPlanResponseDto
+ * @interface CreateCheckoutDto
  */
-export interface PaginatedPlanResponseDto {
+export interface CreateCheckoutDto {
 
     /**
-     * @type {Array<PlanWithActiveUsersDto>}
-     * @memberof PaginatedPlanResponseDto
+     * Indicates whether this is a good or a service
+     *
+     * @type {boolean}
+     * @memberof CreateCheckoutDto
+     * @example true
      */
-    data: Array<PlanWithActiveUsersDto>;
+    isProduct: boolean;
 
     /**
+     * The quantity of the product (only applicable for goods)
+     *
      * @type {number}
-     * @memberof PaginatedPlanResponseDto
+     * @memberof CreateCheckoutDto
+     * @example 1
      */
-    total: number;
+    quantity?: number;
 }

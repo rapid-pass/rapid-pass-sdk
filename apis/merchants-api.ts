@@ -29,7 +29,7 @@ import { PaginatedIntegrationResponseDto } from '../models';
 import { PaginatedLinkResponseDto } from '../models';
 import { PaginatedPlanResponseDto } from '../models';
 import { PaginatedProductResponseDto } from '../models';
-import { PlanDto } from '../models';
+import { PlanWithActiveUsersDto } from '../models';
 import { ProductDto } from '../models';
 import { UpdateIntegrationDto } from '../models';
 import { UpdateMerchantDto } from '../models';
@@ -1259,7 +1259,7 @@ export const MerchantsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanDto>>> {
+        async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PlanWithActiveUsersDto>>> {
             const localVarAxiosArgs = await MerchantsApiAxiosParamCreator(configuration).dashboardControllerCreatePlan(body, merchantId, productId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -1572,7 +1572,7 @@ export const MerchantsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanDto>> {
+        async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<PlanWithActiveUsersDto>> {
             return MerchantsApiFp(configuration).dashboardControllerCreatePlan(body, merchantId, productId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1817,7 +1817,7 @@ export class MerchantsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MerchantsApi
      */
-    public async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<PlanDto>> {
+    public async dashboardControllerCreatePlan(body: CreatePlanDto, merchantId: string, productId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<PlanWithActiveUsersDto>> {
         return MerchantsApiFp(this.configuration).dashboardControllerCreatePlan(body, merchantId, productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
