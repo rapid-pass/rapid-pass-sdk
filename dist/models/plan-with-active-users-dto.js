@@ -13,7 +13,7 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PlanWithActiveUsersDtoPaymentModelEnum = void 0;
+exports.PlanWithActiveUsersDtoPaymentTypesEnum = exports.PlanWithActiveUsersDtoPaymentModelEnum = void 0;
 /**
  * @export
  * @enum {string}
@@ -24,3 +24,17 @@ var PlanWithActiveUsersDtoPaymentModelEnum;
     PlanWithActiveUsersDtoPaymentModelEnum["SUBSCRIPTION"] = "SUBSCRIPTION";
     PlanWithActiveUsersDtoPaymentModelEnum["LIFETIME"] = "LIFETIME";
 })(PlanWithActiveUsersDtoPaymentModelEnum = exports.PlanWithActiveUsersDtoPaymentModelEnum || (exports.PlanWithActiveUsersDtoPaymentModelEnum = {}));
+/**
+ * @export
+ * @enum {string}
+ */
+var PlanWithActiveUsersDtoPaymentTypesEnum;
+(function (PlanWithActiveUsersDtoPaymentTypesEnum) {
+    PlanWithActiveUsersDtoPaymentTypesEnum["STRIPE"] = "STRIPE";
+    PlanWithActiveUsersDtoPaymentTypesEnum["PAYPAL"] = "PAYPAL";
+    PlanWithActiveUsersDtoPaymentTypesEnum["PAYPALFNF"] = "PAYPAL_FNF";
+    PlanWithActiveUsersDtoPaymentTypesEnum["CRYPTO"] = "CRYPTO";
+    PlanWithActiveUsersDtoPaymentTypesEnum["CASHAPP"] = "CASHAPP";
+    PlanWithActiveUsersDtoPaymentTypesEnum["VENMO"] = "VENMO";
+    PlanWithActiveUsersDtoPaymentTypesEnum["ZELLE"] = "ZELLE";
+})(PlanWithActiveUsersDtoPaymentTypesEnum = exports.PlanWithActiveUsersDtoPaymentTypesEnum || (exports.PlanWithActiveUsersDtoPaymentTypesEnum = {}));

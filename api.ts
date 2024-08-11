@@ -13,8 +13,8 @@
  */
 export * from './apis/admin-api';
 export * from './apis/auth-api';
+export * from './apis/checkout-api';
 export * from './apis/dashboard-api';
-export * from './apis/default-api';
 export * from './apis/discord-api';
 export * from './apis/marketplace-api';
 export * from './apis/merchants-api';

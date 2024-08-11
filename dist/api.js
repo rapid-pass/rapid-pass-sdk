@@ -29,8 +29,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 __exportStar(require("./apis/admin-api"), exports);
 __exportStar(require("./apis/auth-api"), exports);
+__exportStar(require("./apis/checkout-api"), exports);
 __exportStar(require("./apis/dashboard-api"), exports);
-__exportStar(require("./apis/default-api"), exports);
 __exportStar(require("./apis/discord-api"), exports);
 __exportStar(require("./apis/marketplace-api"), exports);
 __exportStar(require("./apis/merchants-api"), exports);

@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { PaymentType } from './payment-type';
  /**
  * 
  *
@@ -58,10 +57,10 @@ export interface CreatePlanDto {
     paymentModel: CreatePlanDtoPaymentModelEnum;
 
     /**
-     * @type {Array<PaymentType>}
+     * @type {Array<string>}
      * @memberof CreatePlanDto
      */
-    paymentTypes: Array<PaymentType>;
+    paymentTypes: Array<CreatePlanDtoPaymentTypesEnum>;
 }
 
 /**
@@ -72,5 +71,18 @@ export enum CreatePlanDtoPaymentModelEnum {
     ONETIME = 'ONETIME',
     SUBSCRIPTION = 'SUBSCRIPTION',
     LIFETIME = 'LIFETIME'
+}
+/**
+ * @export
+ * @enum {string}
+ */
+export enum CreatePlanDtoPaymentTypesEnum {
+    STRIPE = 'STRIPE',
+    PAYPAL = 'PAYPAL',
+    PAYPALFNF = 'PAYPAL_FNF',
+    CRYPTO = 'CRYPTO',
+    CASHAPP = 'CASHAPP',
+    VENMO = 'VENMO',
+    ZELLE = 'ZELLE'
 }
 

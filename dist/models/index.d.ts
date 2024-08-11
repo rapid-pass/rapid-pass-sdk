@@ -1,4 +1,5 @@
 export * from './access-token-response-dto';
+export * from './checkout-response-dto';
 export * from './create-checkout-dto';
 export * from './create-link-dto';
 export * from './create-plan-dto';
@@ -20,7 +21,7 @@ export * from './paginated-plan-response-dto';
 export * from './paginated-product-response-dto';
 export * from './paginated-subscription-response-dto';
 export * from './payment-dto';
-export * from './payment-type';
+export * from './payment-type-dto';
 export * from './plan-dto';
 export * from './plan-with-active-users-dto';
 export * from './product-dto';

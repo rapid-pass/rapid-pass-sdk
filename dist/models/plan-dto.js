@@ -13,7 +13,7 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PlanDtoPaymentModelEnum = void 0;
+exports.PlanDtoPaymentTypesEnum = exports.PlanDtoPaymentModelEnum = void 0;
 /**
  * @export
  * @enum {string}
@@ -24,3 +24,17 @@ var PlanDtoPaymentModelEnum;
     PlanDtoPaymentModelEnum["SUBSCRIPTION"] = "SUBSCRIPTION";
     PlanDtoPaymentModelEnum["LIFETIME"] = "LIFETIME";
 })(PlanDtoPaymentModelEnum = exports.PlanDtoPaymentModelEnum || (exports.PlanDtoPaymentModelEnum = {}));
+/**
+ * @export
+ * @enum {string}
+ */
+var PlanDtoPaymentTypesEnum;
+(function (PlanDtoPaymentTypesEnum) {
+    PlanDtoPaymentTypesEnum["STRIPE"] = "STRIPE";
+    PlanDtoPaymentTypesEnum["PAYPAL"] = "PAYPAL";
+    PlanDtoPaymentTypesEnum["PAYPALFNF"] = "PAYPAL_FNF";
+    PlanDtoPaymentTypesEnum["CRYPTO"] = "CRYPTO";
+    PlanDtoPaymentTypesEnum["CASHAPP"] = "CASHAPP";
+    PlanDtoPaymentTypesEnum["VENMO"] = "VENMO";
+    PlanDtoPaymentTypesEnum["ZELLE"] = "ZELLE";
+})(PlanDtoPaymentTypesEnum = exports.PlanDtoPaymentTypesEnum || (exports.PlanDtoPaymentTypesEnum = {}));

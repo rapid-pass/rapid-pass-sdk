@@ -21,13 +21,13 @@
 export interface CreateCheckoutDto {
 
     /**
-     * Indicates whether this is a good or a service
+     * Indicates whether this is a good or a subscription
      *
      * @type {boolean}
      * @memberof CreateCheckoutDto
      * @example true
      */
-    isProduct: boolean;
+    isSubscription: boolean;
 
     /**
      * The quantity of the product (only applicable for goods)
