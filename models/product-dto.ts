@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { IntegrationDto } from './integration-dto';
  /**
  * 
  *
@@ -49,6 +50,12 @@ export interface ProductDto {
      * @memberof ProductDto
      */
     activeUsers: number;
+
+    /**
+     * @type {Array<IntegrationDto>}
+     * @memberof ProductDto
+     */
+    productIntegrations?: Array<IntegrationDto>;
 }
 
 /**

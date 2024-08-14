@@ -9,6 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { IntegrationDto } from './integration-dto';
 import { PaymentTypeDto } from './payment-type-dto';
 /**
 *
@@ -38,4 +39,34 @@ export interface CheckoutResponseDto {
      * @memberof CheckoutResponseDto
      */
     paymentTypes: Array<PaymentTypeDto>;
+    /**
+     * @type {Array<IntegrationDto>}
+     * @memberof CheckoutResponseDto
+     */
+    productIntegrations?: Array<IntegrationDto>;
+    /**
+     * @type {number}
+     * @memberof CheckoutResponseDto
+     */
+    price: number;
+    /**
+     * @type {boolean}
+     * @memberof CheckoutResponseDto
+     */
+    isLifetime: boolean;
+    /**
+     * @type {number}
+     * @memberof CheckoutResponseDto
+     */
+    initialPrice: number;
+    /**
+     * @type {number}
+     * @memberof CheckoutResponseDto
+     */
+    durationDays: number;
+    /**
+     * @type {number}
+     * @memberof CheckoutResponseDto
+     */
+    freeDays: number;
 }

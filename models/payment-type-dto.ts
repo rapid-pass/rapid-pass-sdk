@@ -34,7 +34,7 @@ export interface PaymentTypeDto {
      * @type {string}
      * @memberof PaymentTypeDto
      */
-    stripeSessionId?: string;
+    stripeClientSecret?: string;
 
     /**
      * Stripe checkout URL, if applicable
@@ -42,7 +42,7 @@ export interface PaymentTypeDto {
      * @type {string}
      * @memberof PaymentTypeDto
      */
-    stripeCheckoutUrl?: string;
+    stripeReturnUrl?: string;
 }
 
 /**
