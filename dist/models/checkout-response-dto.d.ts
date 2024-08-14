@@ -26,12 +26,12 @@ export interface CheckoutResponseDto {
      */
     checkoutId: string;
     /**
-     * URL for the second step of the checkout process
+     * Secret to complete checkout
      *
      * @type {string}
      * @memberof CheckoutResponseDto
      */
-    checkoutUrl: string;
+    checkoutSecret: string;
     /**
      * Array of available payment types for this checkout
      *
