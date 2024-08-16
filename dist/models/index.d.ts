@@ -35,6 +35,7 @@ export * from './subscription-dto';
 export * from './two-farequest-dto';
 export * from './update-integration-dto';
 export * from './update-merchant-dto';
+export * from './update-user-name-dto';
 export * from './upsert-faq-dto';
 export * from './upsert-social-media-dto';
 export * from './verify2-farequest-dto';

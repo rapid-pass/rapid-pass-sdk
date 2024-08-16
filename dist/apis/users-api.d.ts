@@ -17,6 +17,7 @@ import { MerchantDto } from '../models';
 import { PaginatedOrderResponseDto } from '../models';
 import { PaginatedPaymentResponseDto } from '../models';
 import { PaginatedSubscriptionResponseDto } from '../models';
+import { UpdateUserNameDto } from '../models';
 /**
  * UsersApi - axios parameter creator
  * @export
@@ -65,6 +66,14 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     usersControllerGetUserSubscriptions: (page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Update user's name
+     * @param {UpdateUserNameDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerUpdateUserName: (body: UpdateUserNameDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -114,6 +123,14 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>>;
+    /**
+     *
+     * @summary Update user's name
+     * @param {UpdateUserNameDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerUpdateUserName(body: UpdateUserNameDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
 };
 /**
  * UsersApi - factory interface
@@ -163,6 +180,14 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>;
+    /**
+     *
+     * @summary Update user's name
+     * @param {UpdateUserNameDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    usersControllerUpdateUserName(body: UpdateUserNameDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
 };
 /**
  * UsersApi - object-oriented interface
@@ -219,4 +244,13 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     usersControllerGetUserSubscriptions(page?: number, limit?: number, isActive?: boolean, options?: AxiosRequestConfig): Promise<AxiosResponse<PaginatedSubscriptionResponseDto>>;
+    /**
+     *
+     * @summary Update user's name
+     * @param {UpdateUserNameDto} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    usersControllerUpdateUserName(body: UpdateUserNameDto, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
 }

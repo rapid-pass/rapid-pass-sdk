@@ -51,6 +51,7 @@ __exportStar(require("./subscription-dto"), exports);
 __exportStar(require("./two-farequest-dto"), exports);
 __exportStar(require("./update-integration-dto"), exports);
 __exportStar(require("./update-merchant-dto"), exports);
+__exportStar(require("./update-user-name-dto"), exports);
 __exportStar(require("./upsert-faq-dto"), exports);
 __exportStar(require("./upsert-social-media-dto"), exports);
 __exportStar(require("./verify2-farequest-dto"), exports);

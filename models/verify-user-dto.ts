@@ -30,6 +30,12 @@ export interface VerifyUserDTO {
      * @type {string}
      * @memberof VerifyUserDTO
      */
+    name: string;
+
+    /**
+     * @type {string}
+     * @memberof VerifyUserDTO
+     */
     email: string;
 
     /**
