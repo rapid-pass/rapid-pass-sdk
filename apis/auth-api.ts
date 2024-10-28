@@ -183,13 +183,18 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
          * 
          * @summary Login VIA Discord OAuth
          * @param {string} code 
+         * @param {string} merchantId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerLoginDiscord: async (code: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        authControllerLoginDiscord: async (code: string, merchantId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'code' is not null or undefined
             if (code === null || code === undefined) {
                 throw new RequiredError('code','Required parameter code was null or undefined when calling authControllerLoginDiscord.');
+            }
+            // verify required parameter 'merchantId' is not null or undefined
+            if (merchantId === null || merchantId === undefined) {
+                throw new RequiredError('merchantId','Required parameter merchantId was null or undefined when calling authControllerLoginDiscord.');
             }
             const localVarPath = `/v1/auth/discord`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -204,6 +209,10 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (code !== undefined) {
                 localVarQueryParameter['code'] = code;
+            }
+
+            if (merchantId !== undefined) {
+                localVarQueryParameter['merchantId'] = merchantId;
             }
 
             const query = new URLSearchParams(localVarUrlObj.search);
@@ -405,6 +414,46 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * 
+         * @summary Verify user discord status
+         * @param {string} discordId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerVerifyDiscord: async (discordId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'discordId' is not null or undefined
+            if (discordId === null || discordId === undefined) {
+                throw new RequiredError('discordId','Required parameter discordId was null or undefined when calling authControllerVerifyDiscord.');
+            }
+            const localVarPath = `/v1/auth/verify-discord/{discordId}`
+                .replace(`{${"discordId"}}`, encodeURIComponent(String(discordId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Verify OTP
          * @param {VerifyOtpDTO} body 
          * @param {*} [options] Override http request option.
@@ -500,11 +549,12 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * 
          * @summary Login VIA Discord OAuth
          * @param {string} code 
+         * @param {string} merchantId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>> {
-            const localVarAxiosArgs = await AuthApiAxiosParamCreator(configuration).authControllerLoginDiscord(code, options);
+        async authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>> {
+            const localVarAxiosArgs = await AuthApiAxiosParamCreator(configuration).authControllerLoginDiscord(code, merchantId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -567,6 +617,20 @@ export const AuthApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Verify user discord status
+         * @param {string} discordId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>> {
+            const localVarAxiosArgs = await AuthApiAxiosParamCreator(configuration).authControllerVerifyDiscord(discordId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Verify OTP
          * @param {VerifyOtpDTO} body 
          * @param {*} [options] Override http request option.
@@ -621,11 +685,12 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * 
          * @summary Login VIA Discord OAuth
          * @param {string} code 
+         * @param {string} merchantId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>> {
-            return AuthApiFp(configuration).authControllerLoginDiscord(code, options).then((request) => request(axios, basePath));
+        async authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>> {
+            return AuthApiFp(configuration).authControllerLoginDiscord(code, merchantId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -665,6 +730,16 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          */
         async authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>> {
             return AuthApiFp(configuration).authControllerVerify2FA(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Verify user discord status
+         * @param {string} discordId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>> {
+            return AuthApiFp(configuration).authControllerVerifyDiscord(discordId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -722,12 +797,13 @@ export class AuthApi extends BaseAPI {
      * 
      * @summary Login VIA Discord OAuth
      * @param {string} code 
+     * @param {string} merchantId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public async authControllerLoginDiscord(code: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<SignInResponseDto>> {
-        return AuthApiFp(this.configuration).authControllerLoginDiscord(code, options).then((request) => request(this.axios, this.basePath));
+    public async authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<SignInResponseDto>> {
+        return AuthApiFp(this.configuration).authControllerLoginDiscord(code, merchantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -771,6 +847,17 @@ export class AuthApi extends BaseAPI {
      */
     public async authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<SignInResponseDto>> {
         return AuthApiFp(this.configuration).authControllerVerify2FA(body, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary Verify user discord status
+     * @param {string} discordId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public async authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<boolean>> {
+        return AuthApiFp(this.configuration).authControllerVerifyDiscord(discordId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

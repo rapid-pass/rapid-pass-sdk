@@ -53,10 +53,11 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
      *
      * @summary Login VIA Discord OAuth
      * @param {string} code
+     * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    authControllerLoginDiscord: (code: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    authControllerLoginDiscord: (code: string, merchantId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get a new access token
@@ -88,6 +89,14 @@ export declare const AuthApiAxiosParamCreator: (configuration?: Configuration) =
      * @throws {RequiredError}
      */
     authControllerVerify2FA: (body: Verify2FARequestDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Verify user discord status
+     * @param {string} discordId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerifyDiscord: (discordId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Verify OTP
@@ -129,10 +138,11 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
      *
      * @summary Login VIA Discord OAuth
      * @param {string} code
+     * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>>;
+    authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>>;
     /**
      *
      * @summary Get a new access token
@@ -164,6 +174,14 @@ export declare const AuthApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<SignInResponseDto>>>;
+    /**
+     *
+     * @summary Verify user discord status
+     * @param {string} discordId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<boolean>>>;
     /**
      *
      * @summary Verify OTP
@@ -205,10 +223,11 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
      *
      * @summary Login VIA Discord OAuth
      * @param {string} code
+     * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
+    authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
     /**
      *
      * @summary Get a new access token
@@ -240,6 +259,14 @@ export declare const AuthApiFactory: (configuration?: Configuration, basePath?: 
      * @throws {RequiredError}
      */
     authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
+    /**
+     *
+     * @summary Verify user discord status
+     * @param {string} discordId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>>;
     /**
      *
      * @summary Verify OTP
@@ -286,11 +313,12 @@ export declare class AuthApi extends BaseAPI {
      *
      * @summary Login VIA Discord OAuth
      * @param {string} code
+     * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    authControllerLoginDiscord(code: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
+    authControllerLoginDiscord(code: string, merchantId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
     /**
      *
      * @summary Get a new access token
@@ -326,6 +354,15 @@ export declare class AuthApi extends BaseAPI {
      * @memberof AuthApi
      */
     authControllerVerify2FA(body: Verify2FARequestDto, options?: AxiosRequestConfig): Promise<AxiosResponse<SignInResponseDto>>;
+    /**
+     *
+     * @summary Verify user discord status
+     * @param {string} discordId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    authControllerVerifyDiscord(discordId: string, options?: AxiosRequestConfig): Promise<AxiosResponse<boolean>>;
     /**
      *
      * @summary Verify OTP

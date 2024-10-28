@@ -269,10 +269,11 @@ var AuthApiAxiosParamCreator = function (configuration) {
          *
          * @summary Login VIA Discord OAuth
          * @param {string} code
+         * @param {string} merchantId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerLoginDiscord: function (code, options) {
+        authControllerLoginDiscord: function (code, merchantId, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions;
@@ -280,6 +281,10 @@ var AuthApiAxiosParamCreator = function (configuration) {
                     // verify required parameter 'code' is not null or undefined
                     if (code === null || code === undefined) {
                         throw new base_1.RequiredError('code', 'Required parameter code was null or undefined when calling authControllerLoginDiscord.');
+                    }
+                    // verify required parameter 'merchantId' is not null or undefined
+                    if (merchantId === null || merchantId === undefined) {
+                        throw new base_1.RequiredError('merchantId', 'Required parameter merchantId was null or undefined when calling authControllerLoginDiscord.');
                     }
                     localVarPath = "/v1/auth/discord";
                     localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -291,6 +296,9 @@ var AuthApiAxiosParamCreator = function (configuration) {
                     localVarQueryParameter = {};
                     if (code !== undefined) {
                         localVarQueryParameter['code'] = code;
+                    }
+                    if (merchantId !== undefined) {
+                        localVarQueryParameter['merchantId'] = merchantId;
                     }
                     query = new URLSearchParams(localVarUrlObj.search);
                     for (key in localVarQueryParameter) {
@@ -515,6 +523,48 @@ var AuthApiAxiosParamCreator = function (configuration) {
         },
         /**
          *
+         * @summary Verify user discord status
+         * @param {string} discordId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerVerifyDiscord: function (discordId, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions;
+                return __generator(this, function (_a) {
+                    // verify required parameter 'discordId' is not null or undefined
+                    if (discordId === null || discordId === undefined) {
+                        throw new base_1.RequiredError('discordId', 'Required parameter discordId was null or undefined when calling authControllerVerifyDiscord.');
+                    }
+                    localVarPath = "/v1/auth/verify-discord/{discordId}"
+                        .replace("{".concat("discordId", "}"), encodeURIComponent(String(discordId)));
+                    localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                    if (configuration) {
+                        baseOptions = configuration.baseOptions;
+                    }
+                    localVarRequestOptions = __assign(__assign({ method: 'GET' }, baseOptions), options);
+                    localVarHeaderParameter = {};
+                    localVarQueryParameter = {};
+                    query = new URLSearchParams(localVarUrlObj.search);
+                    for (key in localVarQueryParameter) {
+                        query.set(key, localVarQueryParameter[key]);
+                    }
+                    for (key in options.params) {
+                        query.set(key, options.params[key]);
+                    }
+                    localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                    headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                    localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                    return [2 /*return*/, {
+                            url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                            options: localVarRequestOptions,
+                        }];
+                });
+            });
+        },
+        /**
+         *
          * @summary Verify OTP
          * @param {VerifyOtpDTO} body
          * @param {*} [options] Override http request option.
@@ -644,15 +694,16 @@ var AuthApiFp = function (configuration) {
          *
          * @summary Login VIA Discord OAuth
          * @param {string} code
+         * @param {string} merchantId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerLoginDiscord: function (code, options) {
+        authControllerLoginDiscord: function (code, merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.AuthApiAxiosParamCreator)(configuration).authControllerLoginDiscord(code, options)];
+                        case 0: return [4 /*yield*/, (0, exports.AuthApiAxiosParamCreator)(configuration).authControllerLoginDiscord(code, merchantId, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -766,6 +817,31 @@ var AuthApiFp = function (configuration) {
         },
         /**
          *
+         * @summary Verify user discord status
+         * @param {string} discordId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerVerifyDiscord: function (discordId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, (0, exports.AuthApiAxiosParamCreator)(configuration).authControllerVerifyDiscord(discordId, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
+         *
          * @summary Verify OTP
          * @param {VerifyOtpDTO} body
          * @param {*} [options] Override http request option.
@@ -843,13 +919,14 @@ var AuthApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Login VIA Discord OAuth
          * @param {string} code
+         * @param {string} merchantId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authControllerLoginDiscord: function (code, options) {
+        authControllerLoginDiscord: function (code, merchantId, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.AuthApiFp)(configuration).authControllerLoginDiscord(code, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.AuthApiFp)(configuration).authControllerLoginDiscord(code, merchantId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -905,6 +982,20 @@ var AuthApiFactory = function (configuration, basePath, axios) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     return [2 /*return*/, (0, exports.AuthApiFp)(configuration).authControllerVerify2FA(body, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
+         *
+         * @summary Verify user discord status
+         * @param {string} discordId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerVerifyDiscord: function (discordId, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.AuthApiFp)(configuration).authControllerVerifyDiscord(discordId, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -987,15 +1078,16 @@ var AuthApi = /** @class */ (function (_super) {
      *
      * @summary Login VIA Discord OAuth
      * @param {string} code
+     * @param {string} merchantId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    AuthApi.prototype.authControllerLoginDiscord = function (code, options) {
+    AuthApi.prototype.authControllerLoginDiscord = function (code, merchantId, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.AuthApiFp)(this.configuration).authControllerLoginDiscord(code, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.AuthApiFp)(this.configuration).authControllerLoginDiscord(code, merchantId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -1059,6 +1151,22 @@ var AuthApi = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2 /*return*/, (0, exports.AuthApiFp)(this.configuration).authControllerVerify2FA(body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     *
+     * @summary Verify user discord status
+     * @param {string} discordId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    AuthApi.prototype.authControllerVerifyDiscord = function (discordId, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, (0, exports.AuthApiFp)(this.configuration).authControllerVerifyDiscord(discordId, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
